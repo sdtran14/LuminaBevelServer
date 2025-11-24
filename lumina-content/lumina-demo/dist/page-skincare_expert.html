@@ -1,0 +1,2000 @@
+
+    <!doctype html>
+    <html>
+      <head>
+        <head>
+    <script type="text/javascript" async="" src="//cdn.shopify.com/proxy/406668bc3065ae3dbdedb32e34276b2e37d85b203e182f97082560f411b86423/api.kount.com/shopify/js?m_id=604301&amp;shop=bevel-skincare.myshopify.com&amp;sp-cache-control=cHVibGljLCBtYXgtYWdlPTkwMA"></script><script type="text/javascript" async="" src="//getbevel.com/cdn/s/trekkie.storefront.308893168db1679b4a9f8a086857af995740364f.min.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-N6XWT7TZ"></script><script async="" crossorigin="" fetchpriority="high" src="/cdn/shopifycloud/importmap-polyfill/es-modules-shim.2.4.0.js"></script>
+    <script>
+
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const param = params.get('view-preview-catalog-page-html-container');
+
+            if (param) {
+                console.warn('Blocked potential XSS vector in Yotpo parameter.');
+                params.delete('view-preview-catalog-page-html-container');
+
+                const base = window.location.origin + window.location.pathname;
+                const cleanedSearch = params.toString();
+                const newURL = cleanedSearch ? `${base}?${cleanedSearch}` : base;
+
+                window.location.replace(newURL);
+            }
+        })();
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
+
+    <title>BEVEL</title><link rel="canonical" href="https://getbevel.com/"><link rel="shortcut icon" href="//getbevel.com/cdn/shop/files/favicon-bevel.jpg?v=1726516958&amp;width=96">
+    <link rel="apple-touch-icon" href="//getbevel.com/cdn/shop/files/favicon-bevel.jpg?v=1726516958&amp;width=180">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N6XWT7TZ');</script>
+    <script>
+
+
+
+        const siteStatus = 'Live';
+
+        window.PGdataLayer = window.PGdataLayer || {
+            GTM: {
+                BINPlatform: '',
+                ConsentOverlay: 'OneTrust',
+
+                ConsentOverlayID: '8ec405a2-6a67-4020-bddb-246f425f9474',
+
+                FacebookConnectAppID: '',
+                FacebookConnectLocale: 'EN-US',
+                FacebookRemarketingID: '',
+                GoogleAnalyticsAllowLinker: '',
+                GoogleAnalyticsDisabled: '',
+                GoogleAnalyticsEETransOnEvent: 'true',
+                GoogleAnalyticsGA4MeasurementID: 'G-EK5Z0JHS4R',
+                GoogleAnalyticsLinkerDomains: '',
+                GoogleAnalyticsLocal: 'UA-42026407-1',
+                GoogleAnalyticsOptimizeContainerID: 'OPT-W5GPJPM',
+                GoogleAnalyticsReportingView: '21834737',
+                GoogleAnalyticsSiteSpeedSampleRate: 'high',
+                GoogleAnalyticsStaging: '',
+                Lytics: '7049c5d65eaef7cad26b97d099a25584',
+                Monetate: '',
+                Rudderstack: '2wLZvcTkBR3Ey7ovkgBQMy2Iym4',
+                SiteBrand: 'Bevel',
+                SiteCountry: 'US',
+                SiteCountryISO3: 'USA',
+                SiteCurrency: 'USD',
+                SiteEnvironment: 'Prod',
+                SiteHost: 'Shopify',
+                SiteLanguage: 'EN',
+                SiteLocalContainer: 'GTM-NV2XNCD',
+                SiteLocale: 'en-US',
+                SitePlatform: 'Shopify',
+                SitePrivacyProtection: 'CCPA',
+                SiteStatus: siteStatus,
+                SiteTechnicalAgency: 'TAG',
+                SiteTouchpoint: '1780',
+            },
+            user: {
+                marketingProgramNbr: '503',
+                sourceID: '13415',
+
+            },
+            content: {
+
+                type: 'Home',
+                category: '',
+
+            },
+            ecomm: {
+                products: [],
+            },
+
+
+        };
+
+        window.dataLayer = window.dataLayer || [];
+
+        (() => {
+            window.addEventListener('load', () => {
+                // Before we push the array of all products on the PDP, we need to
+                // push the actual PDP's product to the array and match current site functionality.
+
+                // P&G wants a list of all products on a given page pushed to PGdataLayer,
+                // with attributes and an index.
+                // This needs to be a window.load event bc of the way certain sliders work in Prestige.
+                const products = document.querySelectorAll('.product-card');
+                if (products.length) {
+                    products.forEach((product, index) => {
+                        const productData = {
+                            brand: 'Bevel',
+                            category: product.dataset.productTags,
+                            listtype:'Home',
+                            name: product.dataset.productTitle,
+                            position: `${index + 1}`,
+                            price: product.dataset.productPrice,
+                            quantity: '1',
+                            sku: product.dataset.productSku,
+                        };
+                        PGdataLayer.ecomm.products.push(productData);
+
+                    });
+                };
+
+                // We also need to populate the product list from the cart.
+
+            });
+
+
+            // Events for "submit search."
+            const searchSiteClasses = ['header-search__input', 'search'];
+            document.addEventListener('submit', (event) => {
+                if (!event.target.classList.contains('header-search__form')) {
+                    return;
+                }
+                const queryInput = event.target.querySelector('[name="q"]');
+                if (!queryInput) {
+                    return;
+                }
+                dataLayer.push({
+                    event: 'customEvent',
+                    GAeventCategory: 'event_informational_action',
+                    GAeventAction: 'event_search',
+                    GAeventLabel: queryInput.value,
+                    GAeventNonInteraction: false,
+                });
+            });
+
+
+
+
+
+
+
+
+
+            // Event for "CRM registration complete." Users are redirected to the homepage on success.
+
+            if (sessionStorage.getItem('shopify_register')) {
+                dataLayer.push({
+                    event: 'customEvent',
+                    GAeventCategory: 'event_crm_action',
+                    GAeventAction: 'event_profile_register_complete',
+                    GAeventNonInteraction: false,
+                });
+                sessionStorage.removeItem('shopify_register');
+            }
+
+
+            // Always reset this login flag.
+            sessionStorage.removeItem('shopify_login');
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin="">
+
+
+
+    <style>
+        @font-face {
+            font-family: 'DinPro';
+            src: url('//getbevel.com/cdn/shop/t/127/assets/DinPro-Light.woff2?v=99361627561118041251761930351')
+            format('woff2');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DinPro';
+            src: url('//getbevel.com/cdn/shop/t/127/assets/DinPro-Regular.woff2?v=20835071262940700071761930351') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DinPro';
+            src: url('//getbevel.com/cdn/shop/t/127/assets/DinPro-Medium.woff2?v=133024497283187183811761930351') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DinPro';
+            src: url('//getbevel.com/cdn/shop/t/127/assets/DinPro-Bold.woff2?v=72904129750047914071761930351') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DinProCondensed';
+            src: url('//getbevel.com/cdn/shop/t/127/assets/DinProCondensed-Light.woff2?v=77422945861069501381761930351') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DinProCondensed';
+            src: url('//getbevel.com/cdn/shop/t/127/assets/DinProCondensed-Regular.woff2?v=92630049154725067291761930351') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BEVEL"><meta property="og:url" content="https://getbevel.com/">
+    <meta property="og:site_name" content="BEVEL"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="BEVEL">
+    <meta name="twitter:description" content="BEVEL">
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://getbevel.com"
+            }]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        [
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "BEVEL",
+                "url": "https:\/\/getbevel.com",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https:\/\/getbevel.com\/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "BEVEL","url": "https:\/\/getbevel.com"
+            }
+        ]
+    </script><style>
+    :root {
+        /* Container */
+        --container-max-width: 100%;
+        --container-xxs-max-width: 27.5rem; /* 440px */
+        --container-xs-max-width: 42.5rem; /* 680px */
+        --container-sm-max-width: 61.25rem; /* 980px */
+        --container-md-max-width: 71.875rem; /* 1150px */
+        --container-lg-max-width: 78.75rem; /* 1260px */
+        --container-xl-max-width: 85rem; /* 1360px */
+        --container-gutter: 1.25rem;
+
+        --section-vertical-spacing: 2.5rem;
+        --section-vertical-spacing-tight:2.5rem;
+
+        --section-stack-gap:2.25rem;
+        --section-stack-gap-tight:2.25rem;
+
+        /* Form settings */
+        --form-gap: 1.25rem; /* Gap between fieldset and submit button */
+        --fieldset-gap: 1rem; /* Gap between each form input within a fieldset */
+        --form-control-gap: 0.625rem; /* Gap between input and label (ignored for floating label) */
+        --checkbox-control-gap: 0.75rem; /* Horizontal gap between checkbox and its associated label */
+        --input-padding-block: 0.65rem; /* Vertical padding for input, textarea and native select */
+        --input-padding-inline: 0.8rem; /* Horizontal padding for input, textarea and native select */
+        --checkbox-size: 0.875rem; /* Size (width and height) for checkbox */
+
+        /* Other sizes */
+        --sticky-area-height: calc(var(--announcement-bar-is-sticky, 0) * var(--announcement-bar-height, 0px) + var(--header-is-sticky, 0) * var(--header-is-visible, 1) * var(--header-height, 0px));
+
+        /* RTL support */
+        --transform-logical-flip: 1;
+        --transform-origin-start: left;
+        --transform-origin-end: right;
+
+        /**
+         * ---------------------------------------------------------------------
+         * TYPOGRAPHY
+         * ---------------------------------------------------------------------
+         */
+
+        /* Font properties */
+        --heading-font-family: 'DinPro';
+        --heading-font-weight: 400;
+        --heading-font-style: normal;
+        --heading-text-transform: uppercase;
+        --heading-letter-spacing: 0.1em;
+        --text-font-family: 'DinPro';
+        --text-font-weight: 400;
+        --text-font-style: normal;
+        --text-letter-spacing: 0.0em;
+        --button-font: var(--text-font-style) var(--text-font-weight) var(--text-sm) / 1.65 var(--text-font-family);
+        --button-text-transform: uppercase;
+        --button-letter-spacing: 0.18em;
+
+        /* Font sizes */--text-heading-size-factor: 1.1;
+        --text-h1: max(0.6875rem, clamp(1.375rem, 1.146341463414634rem + 0.975609756097561vw, 2rem) * var(--text-heading-size-factor));
+        --text-h2: max(0.6875rem, clamp(1.25rem, 1.0670731707317074rem + 0.7804878048780488vw, 1.75rem) * var(--text-heading-size-factor));
+        --text-h3: max(0.6875rem, clamp(1.125rem, 1.0335365853658536rem + 0.3902439024390244vw, 1.375rem) * var(--text-heading-size-factor));
+        --text-h4: max(0.6875rem, clamp(1rem, 0.9542682926829268rem + 0.1951219512195122vw, 1.125rem) * var(--text-heading-size-factor));
+        --text-h5: calc(0.875rem * var(--text-heading-size-factor));
+        --text-h6: calc(0.75rem * var(--text-heading-size-factor));
+
+        --text-xs: 0.75rem;
+        --text-sm: 0.8125rem;
+        --text-base: 0.875rem;
+        --text-lg: 1.0rem;
+        --text-xl: 1.25rem;
+
+        /* Rounded variables (used for border radius) */
+        --rounded-full: 9999px;
+        --button-border-radius: 0.0rem;
+        --input-border-radius: 0.0rem;
+
+        /* Box shadow */
+        --shadow-sm: 0 2px 8px rgb(0 0 0 / 0.05);
+        --shadow: 0 5px 15px rgb(0 0 0 / 0.05);
+        --shadow-md: 0 5px 30px rgb(0 0 0 / 0.05);
+        --shadow-block: px px px rgb(var(--text-primary) / 0.0);
+
+        /**
+         * ---------------------------------------------------------------------
+         * OTHER
+         * ---------------------------------------------------------------------
+         */
+
+        --checkmark-svg-url: url(//getbevel.com/cdn/shop/t/127/assets/checkmark.svg?v=121081943478028099271761930351);
+        --cursor-zoom-in-svg-url: url(//getbevel.com/cdn/shop/t/127/assets/cursor-zoom-in.svg?v=105709643766928536831761930351);
+    }
+
+    [dir="rtl"]:root {
+        /* RTL support */
+        --transform-logical-flip: -1;
+        --transform-origin-start: right;
+        --transform-origin-end: left;
+    }
+
+    @media screen and (min-width: 700px) {
+        :root {
+            /* Typography (font size) */
+            --text-xs: 0.875rem;
+            --text-sm: 0.9375rem;
+            --text-base: 1.0rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.375rem;
+
+            /* Spacing settings */
+            --container-gutter: 2rem;
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        :root {
+            /* Spacing settings */
+            --container-gutter: 3rem;
+
+            --section-vertical-spacing: 4rem;
+            --section-vertical-spacing-tight: 4rem;
+
+            --section-stack-gap:3rem;
+            --section-stack-gap-tight:3rem;
+        }
+    }:root {/* Overlay used for modal */
+         --page-overlay: 0 0 0 / 0.4;
+
+         /* We use the first scheme background as default */
+         --page-background: ;
+
+         /* Product colors */
+         --on-sale-text: 208 27 27;
+         --on-sale-badge-background: 208 27 27;
+         --on-sale-badge-text: 255 255 255;
+         --sold-out-badge-background: 239 239 239;
+         --sold-out-badge-text: 0 0 0 / 0.65;
+         --custom-badge-background: 28 28 28;
+         --custom-badge-text: 255 255 255;
+         --star-color: 28 28 28;
+
+         /* Status colors */
+         --success-background: 212 227 203;
+         --success-text: 48 122 7;
+         --warning-background: 253 241 224;
+         --warning-text: 237 138 0;
+         --error-background: 244 200 200;
+         --error-text: 208 27 27;
+
+         /* Brand colors */
+         --color-light-gray: #fafafa;
+         --color-dark-gray: #6d6d6d;
+         --color-black: #000;
+     }.color-scheme--scheme-1 {
+          /* Color settings */--accent: 28 28 28;
+          --text-color: 28 28 28;
+          --background: 239 239 239 / 1.0;
+          --background-without-opacity: 239 239 239;
+          --background-gradient: ;--border-color: 207 207 207;/* Button colors */
+          --button-background: 28 28 28;
+          --button-text-color: 255 255 255;
+
+          /* Circled buttons */
+          --circle-button-background: 255 255 255;
+          --circle-button-text-color: 28 28 28;
+      }.shopify-section:has(.section-spacing.color-scheme--bg-609ecfcfee2f667ac6c12366fc6ece56) + .shopify-section:has(.section-spacing.color-scheme--bg-609ecfcfee2f667ac6c12366fc6ece56:not(.bordered-section)) .section-spacing {
+           padding-block-start: 0;
+       }.color-scheme--scheme-2 {
+            /* Color settings */--accent: 28 28 28;
+            --text-color: 28 28 28;
+            --background: 255 255 255 / 1.0;
+            --background-without-opacity: 255 255 255;
+            --background-gradient: ;--border-color: 221 221 221;/* Button colors */
+            --button-background: 28 28 28;
+            --button-text-color: 255 255 255;
+
+            /* Circled buttons */
+            --circle-button-background: 255 255 255;
+            --circle-button-text-color: 28 28 28;
+        }.shopify-section:has(.section-spacing.color-scheme--bg-54922f2e920ba8346f6dc0fba343d673) + .shopify-section:has(.section-spacing.color-scheme--bg-54922f2e920ba8346f6dc0fba343d673:not(.bordered-section)) .section-spacing {
+             padding-block-start: 0;
+         }.color-scheme--scheme-3 {
+              /* Color settings */--accent: 0 0 0;
+              --text-color: 0 0 0;
+              --background: 255 255 255 / 1.0;
+              --background-without-opacity: 255 255 255;
+              --background-gradient: ;--border-color: 217 217 217;/* Button colors */
+              --button-background: 0 0 0;
+              --button-text-color: 255 255 255;
+
+              /* Circled buttons */
+              --circle-button-background: 255 255 255;
+              --circle-button-text-color: 28 28 28;
+          }.shopify-section:has(.section-spacing.color-scheme--bg-54922f2e920ba8346f6dc0fba343d673) + .shopify-section:has(.section-spacing.color-scheme--bg-54922f2e920ba8346f6dc0fba343d673:not(.bordered-section)) .section-spacing {
+               padding-block-start: 0;
+           }.color-scheme--scheme-4 {
+                /* Color settings */--accent: 255 255 255;
+                --text-color: 255 255 255;
+                --background: 88 80 70 / 1.0;
+                --background-without-opacity: 88 80 70;
+                --background-gradient: ;--border-color: 113 106 98;/* Button colors */
+                --button-background: 255 255 255;
+                --button-text-color: 28 28 28;
+
+                /* Circled buttons */
+                --circle-button-background: 255 255 255;
+                --circle-button-text-color: 28 28 28;
+            }.shopify-section:has(.section-spacing.color-scheme--bg-01c72d76ccd871bea5918e15d7b30171) + .shopify-section:has(.section-spacing.color-scheme--bg-01c72d76ccd871bea5918e15d7b30171:not(.bordered-section)) .section-spacing {
+                 padding-block-start: 0;
+             }.color-scheme--scheme-58fe770a-e5f3-4bea-b2d9-6851533e9ff6 {
+                  /* Color settings */--accent: 28 28 28;
+                  --text-color: 5 237 255;
+                  --background: 66 69 75 / 1.0;
+                  --background-without-opacity: 66 69 75;
+                  --background-gradient: ;--border-color: 57 94 102;/* Button colors */
+                  --button-background: 28 28 28;
+                  --button-text-color: 5 237 255;
+
+                  /* Circled buttons */
+                  --circle-button-background: 255 255 255;
+                  --circle-button-text-color: 28 28 28;
+              }.shopify-section:has(.section-spacing.color-scheme--bg-728067d24c7416823aca42cd9f413cd0) + .shopify-section:has(.section-spacing.color-scheme--bg-728067d24c7416823aca42cd9f413cd0:not(.bordered-section)) .section-spacing {
+                   padding-block-start: 0;
+               }.color-scheme--scheme-80c772be-3918-45f2-8597-86e8cab42e61 {
+                    /* Color settings */--accent: 28 28 28;
+                    --text-color: 255 255 255;
+                    --background: 0 0 0 / 1.0;
+                    --background-without-opacity: 0 0 0;
+                    --background-gradient: ;--border-color: 38 38 38;/* Button colors */
+                    --button-background: 28 28 28;
+                    --button-text-color: 255 255 255;
+
+                    /* Circled buttons */
+                    --circle-button-background: 255 255 255;
+                    --circle-button-text-color: 28 28 28;
+                }.shopify-section:has(.section-spacing.color-scheme--bg-77e774e6cc4d94d6a32f6256f02d9552) + .shopify-section:has(.section-spacing.color-scheme--bg-77e774e6cc4d94d6a32f6256f02d9552:not(.bordered-section)) .section-spacing {
+                     padding-block-start: 0;
+                 }.color-scheme--scheme-50f848bb-1694-4652-852a-708aaead9d98 {
+                      /* Color settings */--accent: 28 28 28;
+                      --text-color: 0 0 0;
+                      --background: 5 237 255 / 1.0;
+                      --background-without-opacity: 5 237 255;
+                      --background-gradient: ;--border-color: 4 201 217;/* Button colors */
+                      --button-background: 28 28 28;
+                      --button-text-color: 255 255 255;
+
+                      /* Circled buttons */
+                      --circle-button-background: 255 255 255;
+                      --circle-button-text-color: 28 28 28;
+                  }.shopify-section:has(.section-spacing.color-scheme--bg-afe10224e0fb906889e5aee1f8bad81b) + .shopify-section:has(.section-spacing.color-scheme--bg-afe10224e0fb906889e5aee1f8bad81b:not(.bordered-section)) .section-spacing {
+                       padding-block-start: 0;
+                   }.color-scheme--dialog {
+                        /* Color settings */--accent: 28 28 28;
+                        --text-color: 28 28 28;
+                        --background: 255 255 255 / 1.0;
+                        --background-without-opacity: 255 255 255;
+                        --background-gradient: ;--border-color: 221 221 221;/* Button colors */
+                        --button-background: 28 28 28;
+                        --button-text-color: 255 255 255;
+
+                        /* Circled buttons */
+                        --circle-button-background: 255 255 255;
+                        --circle-button-text-color: 28 28 28;
+                    }
+</style><script>
+    document.documentElement.classList.replace('no-js', 'js');
+
+    // This allows to expose several variables to the global scope, to be used in scripts
+    window.themeVariables = {
+        settings: {
+            showPageTransition: false,
+            pageType: "index",
+            moneyFormat: "${{amount}}",
+            moneyWithCurrencyFormat: "${{amount}} USD",
+            currencyCodeEnabled: false,
+            cartType: "drawer",
+            staggerMenuApparition: true
+        },
+
+        strings: {
+            addToCartButton: "Add to cart",
+            soldOutButton: "Sold out",
+            preOrderButton: "Pre-order",
+            unavailableButton: "Unavailable",
+            addedToCart: "Added to your cart!",
+            closeGallery: "Close gallery",
+            zoomGallery: "Zoom picture",
+            errorGallery: "Image cannot be loaded",
+            soldOutBadge: "Sold out",
+            discountBadge: "Save @@",
+            sku: "SKU:",
+            shippingEstimatorNoResults: "Sorry, we do not ship to your address.",
+            shippingEstimatorOneResult: "There is one shipping rate for your address:",
+            shippingEstimatorMultipleResults: "There are several shipping rates for your address:",
+            shippingEstimatorError: "One or more error occurred while retrieving shipping rates:",
+            next: "Next",
+            previous: "Previous"
+        },
+
+        mediaQueries: {
+            'sm': 'screen and (min-width: 700px)',
+            'md': 'screen and (min-width: 1000px)',
+            'lg': 'screen and (min-width: 1150px)',
+            'xl': 'screen and (min-width: 1400px)',
+            '2xl': 'screen and (min-width: 1600px)',
+            'sm-max': 'screen and (max-width: 699px)',
+            'md-max': 'screen and (max-width: 999px)',
+            'lg-max': 'screen and (max-width: 1149px)',
+            'xl-max': 'screen and (max-width: 1399px)',
+            '2xl-max': 'screen and (max-width: 1599px)',
+            'motion-safe': '(prefers-reduced-motion: no-preference)',
+            'motion-reduce': '(prefers-reduced-motion: reduce)',
+            'supports-hover': 'screen and (pointer: fine)',
+            'supports-touch': 'screen and (hover: none)'
+        }
+    };</script><script>
+    if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
+        const importMapPolyfill = document.createElement('script');
+        importMapPolyfill.async = true;
+        importMapPolyfill.src = "//getbevel.com/cdn/shop/t/127/assets/es-module-shims.min.js?v=163628956881225179081761930351";
+
+        document.head.appendChild(importMapPolyfill);
+    }
+</script>
+
+    <script type="importmap">{
+        "imports": {
+          "vendor": "//getbevel.com/cdn/shop/t/127/assets/vendor.min.js?v=55120211853256353121761930351",
+          "theme": "//getbevel.com/cdn/shop/t/127/assets/theme.js?v=62452069353472694521761930351",
+          "photoswipe": "//getbevel.com/cdn/shop/t/127/assets/photoswipe.min.js?v=20290624223189769891761930351"
+        }
+      }
+    </script>
+
+    <script type="module" src="//getbevel.com/cdn/shop/t/127/assets/vendor.min.js?v=55120211853256353121761930351"></script>
+    <script type="module" src="//getbevel.com/cdn/shop/t/127/assets/theme.js?v=62452069353472694521761930351"></script>
+    <script type="module" src="//getbevel.com/cdn/shop/t/127/assets/standard-events.js?v=51256188898345067601761930351"></script>
+
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script><meta name="facebook-domain-verification" content="zc5txg351wle9pnnq9qnly1njzdwdf">
+    <meta name="google-site-verification" content="sVqpnqEvUTQ1vJWygJb6RCwj6WRRfWCvgbqBNlcbNw8">
+    <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/86655762737/digital_wallets/dialog">
+    <meta name="shopify-requires-components" content="true" product-ids="10107297497393,10114297495857">
+    <meta name="shopify-checkout-api-token" content="0bcf7e07d34004342165753ca3cc8d3b">
+    <script async="async" src="/checkouts/internal/preloads.js?locale=en-US"></script>
+    <link rel="preconnect" href="https://shop.app" crossorigin="anonymous">
+    <script async="async" src="https://shop.app/checkouts/internal/preloads.js?locale=en-US&amp;shop_id=86655762737" crossorigin="anonymous"></script>
+    <script id="apple-pay-shop-capabilities" type="application/json">{"shopId":86655762737,"countryCode":"US","currencyCode":"USD","merchantCapabilities":["supports3DS"],"merchantId":"gid:\/\/shopify\/Shop\/86655762737","merchantName":"BEVEL","requiredBillingContactFields":["postalAddress","email"],"requiredShippingContactFields":["postalAddress","email"],"shippingType":"shipping","supportedNetworks":["visa","masterCard","amex","discover","elo","jcb"],"total":{"type":"pending","label":"BEVEL","amount":"1.00"},"shopifyPaymentsEnabled":true,"supportsSubscriptions":true}</script>
+    <script id="shopify-features" type="application/json">{"accessToken":"0bcf7e07d34004342165753ca3cc8d3b","betas":["rich-media-storefront-analytics"],"domain":"getbevel.com","predictiveSearch":true,"shopId":86655762737,"locale":"en"}</script>
+    <script>var Shopify = Shopify || {};
+    Shopify.shop = "bevel-skincare.myshopify.com";
+    Shopify.locale = "en";
+    Shopify.currency = {"active":"USD","rate":"1.0"};
+    Shopify.country = "US";
+    Shopify.theme = {"name":"v1.9.1 - 20% Sale","id":181569847601,"schema_name":"Bevel","schema_version":"v1.9.0","theme_store_id":null,"role":"main"};
+    Shopify.theme.handle = "null";
+    Shopify.theme.style = {"id":null,"handle":null};
+    Shopify.cdnHost = "getbevel.com/cdn";
+    Shopify.routes = Shopify.routes || {};
+    Shopify.routes.root = "/";</script>
+    <script type="module">!function(o){(o.Shopify=o.Shopify||{}).modules=!0}(window);</script>
+    <script>!function(o){function n(){var o=[];function n(){o.push(Array.prototype.slice.apply(arguments))}return n.q=o,n}var t=o.Shopify=o.Shopify||{};t.loadFeatures=n(),t.autoloadFeatures=n()}(window);</script>
+    <script>
+        window.ShopifyPay = window.ShopifyPay || {};
+        window.ShopifyPay.apiHost = "shop.app\/pay";
+        window.ShopifyPay.redirectState = null;
+    </script>
+    <script id="shop-js-analytics" type="application/json">{"pageType":"index"}</script>
+    <script defer="defer" async="" type="module" src="//getbevel.com/cdn/shopifycloud/shop-js/modules/v2/client.init-shop-cart-sync_COMZFrEa.en.esm.js"></script>
+    <script defer="defer" async="" type="module" src="//getbevel.com/cdn/shopifycloud/shop-js/modules/v2/chunk.common_CdXrxk3f.esm.js"></script>
+    <script type="module">
+        await import("//getbevel.com/cdn/shopifycloud/shop-js/modules/v2/client.init-shop-cart-sync_COMZFrEa.en.esm.js");
+        await import("//getbevel.com/cdn/shopifycloud/shop-js/modules/v2/chunk.common_CdXrxk3f.esm.js");
+
+        window.Shopify.SignInWithShop?.initShopCartSync?.({"fedCMEnabled":true,"windoidEnabled":true});
+
+    </script>
+    <script>
+        window.Shopify = window.Shopify || {};
+        if (!window.Shopify.featureAssets) window.Shopify.featureAssets = {};
+        window.Shopify.featureAssets['shop-js'] = {"shop-cart-sync":["modules/v2/client.shop-cart-sync_CRSPkpKa.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"shop-button":["modules/v2/client.shop-button_B6dBoDg5.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"init-windoid":["modules/v2/client.init-windoid_hXardXh0.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"shop-cash-offers":["modules/v2/client.shop-cash-offers_p6Pw3nax.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"init-fed-cm":["modules/v2/client.init-fed-cm_DO1JVZ96.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"init-shop-email-lookup-coordinator":["modules/v2/client.init-shop-email-lookup-coordinator_jpxQlUsx.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"shop-toast-manager":["modules/v2/client.shop-toast-manager_C-K0q6-t.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"shop-login-button":["modules/v2/client.shop-login-button_BHRMsoBb.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"pay-button":["modules/v2/client.pay-button_CRuQ9trT.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"init-shop-cart-sync":["modules/v2/client.init-shop-cart-sync_COMZFrEa.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js"],"init-customer-accounts-sign-up":["modules/v2/client.init-customer-accounts-sign-up_Q1yheB3t.en.esm.js","modules/v2/client.shop-login-button_BHRMsoBb.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"avatar":["modules/v2/client.avatar_BTnouDA3.en.esm.js"],"init-customer-accounts":["modules/v2/client.init-customer-accounts_B5rMd0lj.en.esm.js","modules/v2/client.shop-login-button_BHRMsoBb.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"init-shop-for-new-customer-accounts":["modules/v2/client.init-shop-for-new-customer-accounts_BNQiNx4m.en.esm.js","modules/v2/client.shop-login-button_BHRMsoBb.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"checkout-modal":["modules/v2/client.checkout-modal_DtXVhFgQ.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"shop-follow-button":["modules/v2/client.shop-follow-button_CV5C02lv.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"shop-login":["modules/v2/client.shop-login_Bz_Zm_XZ.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"lead-capture":["modules/v2/client.lead-capture_CmGCXBh3.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"],"payment-terms":["modules/v2/client.payment-terms_D7XnU2ez.en.esm.js","modules/v2/chunk.common_CdXrxk3f.esm.js","modules/v2/chunk.modal_C89cmTvN.esm.js"]};
+    </script>
+    <script>(function() {
+        var isLoaded = false;
+        function asyncLoad() {
+            if (isLoaded) return;
+            isLoaded = true;
+            var urls = ["\/\/cdn.shopify.com\/proxy\/406668bc3065ae3dbdedb32e34276b2e37d85b203e182f97082560f411b86423\/api.kount.com\/shopify\/js?m_id=604301\u0026shop=bevel-skincare.myshopify.com\u0026sp-cache-control=cHVibGljLCBtYXgtYWdlPTkwMA"];
+            for (var i = 0; i < urls.length; i++) {
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = urls[i];
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            }
+        };
+        if(window.attachEvent) {
+            window.attachEvent('onload', asyncLoad);
+        } else {
+            window.addEventListener('load', asyncLoad, false);
+        }
+    })();</script>
+    <script id="__st">var __st={"a":86655762737,"offset":-18000,"reqid":"9d6cf5a3-079a-473d-816c-73be5f89cd58-1762980130","pageurl":"getbevel.com\/","u":"99beb50ad349","p":"home"};</script>
+    <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+    <script id="captcha-bootstrap">!function(){'use strict';const t='contact',e='account',n='new_comment',o=[[t,t],['blogs',n],['comments',n],[t,'customer']],c=[[e,'customer_login'],[e,'guest_login'],[e,'recover_customer_password'],[e,'create_customer']],r=t=>t.map((([t,e])=>`form[action*='/${t}']:not([data-nocaptcha='true']) input[name='form_type'][value='${e}']`)).join(','),a=t=>()=>t?[...document.querySelectorAll(t)].map((t=>t.form)):[];function s(){const t=[...o],e=r(t);return a(e)}const i='password',u='form_key',d=['recaptcha-v3-token','g-recaptcha-response','h-captcha-response',i],f=()=>{try{return window.sessionStorage}catch{return}},m='__shopify_v',_=t=>t.elements[u];function p(t,e,n=!1){try{const o=window.sessionStorage,c=JSON.parse(o.getItem(e)),{data:r}=function(t){const{data:e,action:n}=t;return t[m]||n?{data:e,action:n}:{data:t,action:n}}(c);for(const[e,n]of Object.entries(r))t.elements[e]&&(t.elements[e].value=n);n&&o.removeItem(e)}catch(o){console.error('form repopulation failed',{error:o})}}const l='form_type',E='cptcha';function T(t){t.dataset[E]=!0}const w=window,h=w.document,L='Shopify',v='ce_forms',y='captcha';let A=!1;((t,e)=>{const n=(g='f06e6c50-85a8-45c8-87d0-21a2b65856fe',I='https://cdn.shopify.com/shopifycloud/storefront-forms-hcaptcha/ce_storefront_forms_captcha_hcaptcha.v1.5.2.iife.js',D={infoText:'Protected by hCaptcha',privacyText:'Privacy',termsText:'Terms'},(t,e,n)=>{const o=w[L][v],c=o.bindForm;if(c)return c(t,g,e,D).then(n);var r;o.q.push([[t,g,e,D],n]),r=I,A||(h.body.append(Object.assign(h.createElement('script'),{id:'captcha-provider',async:!0,src:r})),A=!0)});var g,I,D;w[L]=w[L]||{},w[L][v]=w[L][v]||{},w[L][v].q=[],w[L][y]=w[L][y]||{},w[L][y].protect=function(t,e){n(t,void 0,e),T(t)},Object.freeze(w[L][y]),function(t,e,n,w,h,L){const[v,y,A,g]=function(t,e,n){const i=e?o:[],u=t?c:[],d=[...i,...u],f=r(d),m=r(i),_=r(d.filter((([t,e])=>n.includes(e))));return[a(f),a(m),a(_),s()]}(w,h,L),I=t=>{const e=t.target;return e instanceof HTMLFormElement?e:e&&e.form},D=t=>v().includes(t);t.addEventListener('submit',(t=>{const e=I(t);if(!e)return;const n=D(e)&&!e.dataset.hcaptchaBound&&!e.dataset.recaptchaBound,o=_(e),c=g().includes(e)&&(!o||!o.value);(n||c)&&t.preventDefault(),c&&!n&&(function(t){try{if(!f())return;!function(t){const e=f();if(!e)return;const n=_(t);if(!n)return;const o=n.value;o&&e.removeItem(o)}(t);const e=Array.from(Array(32),(()=>Math.random().toString(36)[2])).join('');!function(t,e){_(t)||t.append(Object.assign(document.createElement('input'),{type:'hidden',name:u})),t.elements[u].value=e}(t,e),function(t,e){const n=f();if(!n)return;const o=[...t.querySelectorAll(`input[type='${i}']`)].map((({name:t})=>t)),c=[...d,...o],r={};for(const[a,s]of new FormData(t).entries())c.includes(a)||(r[a]=s);n.setItem(e,JSON.stringify({[m]:1,action:t.action,data:r}))}(t,e)}catch(e){console.error('failed to persist form',e)}}(e),e.submit())}));const S=(t,e)=>{t&&!t.dataset[E]&&(n(t,e.some((e=>e===t))),T(t))};for(const o of['focusin','change'])t.addEventListener(o,(t=>{const e=I(t);D(e)&&S(e,y())}));const B=e.get('form_key'),M=e.get(l),P=B&&M;t.addEventListener('DOMContentLoaded',(()=>{const t=y();if(P)for(const e of t)e.elements[l].value===M&&p(e,B);[...new Set([...A(),...v().filter((t=>'true'===t.dataset.shopifyCaptcha))])].forEach((e=>S(e,t)))}))}(h,new URLSearchParams(w.location.search),n,t,e,['guest_login'])})(!0,!0)}();</script>
+    <script integrity="sha256-52AcMU7V7pcBOXWImdc/TAGTFKeNjmkeM1Pvks/DTgc=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//getbevel.com/cdn/shopifycloud/storefront/assets/storefront/load_feature-81c60534.js" crossorigin="anonymous"></script>
+    <script crossorigin="anonymous" defer="defer" src="//getbevel.com/cdn/shopifycloud/storefront/assets/shopify_pay/storefront-65b4c6d7.js?v=20250812"></script>
+    <script data-source-attribution="shopify.dynamic_checkout.dynamic.init">var Shopify=Shopify||{};Shopify.PaymentButton=Shopify.PaymentButton||{isStorefrontPortableWallets:!0,init:function(){window.Shopify.PaymentButton.init=function(){};var t=document.createElement("script");t.src="https://getbevel.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js",t.type="module",document.head.appendChild(t)}};
+    </script>
+    <script data-source-attribution="shopify.dynamic_checkout.buyer_consent">
+        function portableWalletsHideBuyerConsent(e){var t=document.getElementById("shopify-buyer-consent"),n=document.getElementById("shopify-subscription-policy-button");t&&n&&(t.classList.add("hidden"),t.setAttribute("aria-hidden","true"),n.removeEventListener("click",e))}function portableWalletsShowBuyerConsent(e){var t=document.getElementById("shopify-buyer-consent"),n=document.getElementById("shopify-subscription-policy-button");t&&n&&(t.classList.remove("hidden"),t.removeAttribute("aria-hidden"),n.addEventListener("click",e))}window.Shopify?.PaymentButton&&(window.Shopify.PaymentButton.hideBuyerConsent=portableWalletsHideBuyerConsent,window.Shopify.PaymentButton.showBuyerConsent=portableWalletsShowBuyerConsent);
+    </script>
+    <script data-source-attribution="shopify.dynamic_checkout.cart.bootstrap">document.addEventListener("DOMContentLoaded",(function(){function t(){return document.querySelector("shopify-accelerated-checkout-cart, shopify-accelerated-checkout")}if(t())Shopify.PaymentButton.init();else{new MutationObserver((function(e,n){t()&&(Shopify.PaymentButton.init(),n.disconnect())})).observe(document.body,{childList:!0,subtree:!0})}}));
+    </script>
+    <link id="shopify-accelerated-checkout-styles" rel="stylesheet" media="screen" href="https://getbevel.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css" crossorigin="anonymous">
+    <style id="shopify-accelerated-checkout-cart">
+        #shopify-buyer-consent {
+            margin-top: 1em;
+            display: inline-block;
+            width: 100%;
+        }
+
+        #shopify-buyer-consent.hidden {
+            display: none;
+        }
+
+        #shopify-subscription-policy-button {
+            background: none;
+            border: none;
+            padding: 0;
+            text-decoration: underline;
+            font-size: inherit;
+            cursor: pointer;
+        }
+
+        #shopify-subscription-policy-button::before {
+            box-shadow: none;
+        }
+
+    </style>
+
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        const performanceCookieCategory = ',2,';
+
+        function waitForOneTrust() {
+            hasOneTrustLoaded();
+
+            let attempts = 0;
+            const interval = setInterval(function() {
+                if (hasOneTrustLoaded() || attempts > 100) {
+                    clearInterval(interval);
+                }
+                attempts++;
+            }, 100);
+        }
+
+        function hasOneTrustLoaded() {
+            if (typeof window.OnetrustActiveGroups === 'string') {
+                optanonWrapper();
+                window.OptanonWrapper = optanonWrapper;
+                return true;
+            }
+            return false;
+        }
+
+        function optanonWrapper() {
+            const trackingConsent = window.OnetrustActiveGroups.includes(
+                performanceCookieCategory
+            );
+
+            updateConsent({
+                ad_personalization: trackingConsent ? 'granted' : 'denied',
+                ad_storage: trackingConsent ? 'granted' : 'denied',
+                ad_user_data: trackingConsent ? 'granted' : 'denied',
+                analytics_storage: trackingConsent ? 'granted' : 'denied',
+                functionality_storage: trackingConsent ? 'granted' : 'denied',
+                personalization_storage: trackingConsent ? 'granted' : 'denied',
+            });
+        }
+
+        window.Shopify.loadFeatures(
+            [
+                {
+                    name: 'consent-tracking-api',
+                    version: '0.1',
+                },
+            ],
+            (error) => {
+                if (error) {
+                    throw error;
+                }
+
+                const preferencesAllowed = window.Shopify.customerPrivacy.preferencesProcessingAllowed();
+                const analyticsAllowed = window.Shopify.customerPrivacy.analyticsProcessingAllowed();
+                const marketingAllowed = window.Shopify.customerPrivacy.marketingAllowed();
+
+                document.addEventListener('visitorConsentCollected', (event) =>
+                    pixelsBlocking(event.detail.analyticsAllowed)
+                );
+
+            }
+        );
+
+        waitForOneTrust();
+
+        function updateConsent(consents) {
+            if (!window.Shopify.customerPrivacy || !consents) {
+                return;
+            }
+
+            window.Shopify.customerPrivacy.setTrackingConsent(
+                {
+                    analytics: consents.analytics_storage === 'granted',
+                    marketing:
+                        consents.ad_personalization === 'granted' &&
+                        consents.ad_storage === 'granted' &&
+                        consents.ad_user_data === 'granted',
+                    preferences: consents.analytics_storage === 'granted',
+                    sale_of_data: consents.analytics_storage === 'granted',
+                },
+                () => {
+                }
+            );
+            // @todo – replace this with whatever needs to happen in visitorConsentCollected.
+            if (consents.ad_user_data == 'denied') {
+                pixelsBlocking(false);
+            }
+        }
+
+        function pixelsBlocking(consentStatus) {
+            console.log('Consent status: ', consentStatus);
+
+            if (consentStatus) {
+                if (window.fbq) {
+                    fbqPixelConsentManage('grant');
+                }
+
+                if (window.dtrum) {
+                    dynatraceConsentManage(true);
+                }
+
+                document.cookie =
+                    '__kla_off=false; expires=' +
+                    new Date(
+                        new Date().getTime() + 2 * 365 * 24 * 60 * 60 * 1000
+                    ).toUTCString() +
+                    '; path=/';
+                return;
+            }
+
+
+            if (window.fbq) {
+                fbqPixelConsentManage('revoke');
+            }
+            if (window.dtrum) {
+                dynatraceConsentManage(false);
+            }
+            disabledTrekkiePixels();
+            document.cookie =
+                '__kla_off=true; expires=' +
+                new Date(
+                    new Date().getTime() + 2 * 365 * 24 * 60 * 60 * 1000
+                ).toUTCString() +
+                '; path=/';
+        }
+
+        const fbqPixelConsentManage = (status) => {
+            if (!window.fbq || status !== 'revoke' || status !== 'grant') {
+                return;
+            }
+            window.fbq('consent', status);
+            console.log('=> Facebook consent status: ', status.toUpperCase());
+        };
+
+        const dynatraceConsentManage = (status) => {
+            if (!window.dtrum) {
+                return;
+            }
+
+            if (status) {
+                window.dtrum.enableSessionReplay(true);
+                window.dtrum.enable();
+                console.log('=> Dynatrace consent status: ENABLED');
+                return;
+            }
+
+            window.dtrum.disableSessionReplay();
+            console.log('=> Dynatrace consent status: DISABLED');
+        };
+
+        const disabledTrekkiePixels = () => {
+            let attempts = 0;
+            const trekkiePixelInterval = setInterval(() => {
+                if (window.trekkie || attempts > 100) {
+                    const tikTokPixels = Array.from(
+                        document.querySelectorAll('script[src*="https://analytics.tiktok.com"]')
+                    );
+                    const pinterestPixels = Array.from(
+                        document.querySelectorAll(
+                            'script[src*="https://ct.pinterest.com"], script[src*="https://s.pinimg.com"]'
+                        )
+                    );
+                    const facebookPixels = Array.from(
+                        document.querySelectorAll(
+                            'script[src*="https://connect.facebook.net/en_US/fbevents.js"]'
+                        )
+                    );
+                    const crazyeggPixels = Array.from(
+                        document.querySelectorAll(
+                            'script[src*="https://script.crazyegg.com"]'
+                        )
+                    );
+                    const klaviyoPixels = Array.from(
+                        document.querySelectorAll(
+                            'script[src*="https://static.klaviyo.com"], script[src*="https://static-tracking.klaviyo.com"], script[src*="https://fast.a.klaviyo.com"], script[src*="https://static-forms.a.klaviyo.com"]',
+                        )
+                    );
+                    const moatPixels = Array.from(
+                        document.querySelectorAll(
+                            'script[src*="https://z.moatads.com"]'
+                        )
+                    );
+
+                    const pixels = [...pinterestPixels, ...tikTokPixels, ...facebookPixels, ...crazyeggPixels, ...klaviyoPixels, ...moatPixels];
+
+                    pixels.forEach((pixel) => {
+                        pixel.setAttribute("type", "text/plain");
+                        pixel.setAttribute("class", "optanon-category-C0002-C0003-C0005");
+                    });
+
+                    clearInterval(trekkiePixelInterval);
+                }
+
+                attempts++;
+            }, 500);
+        };
+    </script>
+
+    <link href="//getbevel.com/cdn/shop/t/127/assets/theme.css?v=82554448271590548161761930351" rel="stylesheet" type="text/css" media="all"><link href="//getbevel.com/cdn/shop/t/127/assets/typography.css?v=80776308889027995841761930351" rel="stylesheet" type="text/css" media="all"><link href="//getbevel.com/cdn/shop/t/127/assets/custom.css?v=151600855452201628891761930351" rel="stylesheet" type="text/css" media="all">
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/26WErrzyukJTKZEE6uHO9gAdmrDGN2NjbHHs5Bla?languageCode=en" async=""></script>
+
+
+
+
+    <script>
+
+        !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();
+
+
+
+
+
+    </script>
+
+    <!-- BEGIN app block: shopify://apps/ab-tasty/blocks/abtasty-tag/50439cd8-89e0-4240-838a-2948c07c763d -->
+
+    <script type="text/javascript" src="https://try.abtasty.com/b662e922eb2ed9fca93b1f4747928948.js" async=""></script>
+
+    <script type="text/javascript">
+        // This waits for all the external ressources (including ABTasty tag) to load before executing the callback function.
+        window.addEventListener('load', function () {
+            if(!window.ABTasty) {
+                // AB Tasty tag is not loaded so exit.
+                return
+            }
+
+            if (window.ABTasty.eventState?.['consentValid']?.status === 'complete') {
+                updateShopifyDataForWebPixel();
+            } else {
+                window.addEventListener('abtasty_consentValid', () => {
+                    updateShopifyDataForWebPixel();
+                });
+            }
+
+            async function updateShopifyDataForWebPixel() {
+                const STORAGE_KEY = 'ABTastyShopify';
+                const consentReady = ABTasty.consentReady;
+                const shouldHandleSubdomain = "false" === "true";
+
+                if(!consentReady) {
+                    if(shouldHandleSubdomain) {
+                        await cookieStore.delete(STORAGE_KEY);
+                    }
+                    return localStorage.removeItem(STORAGE_KEY);
+                }
+
+                const ABTastyData = {
+                    identifier: "b662e922eb2ed9fca93b1f4747928948",
+                    campaigns: ABTasty.getCampaignHistory(),
+                    visitorId: ABTasty.visitor.id,
+                    accountId: ABTasty.getAccountSettings().id,
+                    consent: ABTasty.consentReady,
+                };
+
+                if (shouldHandleSubdomain) {
+                    await cookieStore.set({
+                        name: STORAGE_KEY,
+                        value: JSON.stringify(ABTastyData),
+                        expires: Date.now() + 1 * 24 * 60 * 60 * 1000, // 1 day
+                        domain: window.location.hostname,
+                    });
+                }
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(ABTastyData));
+            }
+        });
+    </script>
+
+
+
+
+
+    <!-- END app block --><!-- BEGIN app block: shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a --><link rel="preconnect dns-prefetch" href="https://api.config-security.com/" crossorigin="">
+    <link rel="preconnect dns-prefetch" href="https://conf.config-security.com/" crossorigin="">
+    <script>
+        /* >> TriplePixel :: start*/
+        window.TriplePixelData={TripleName:"bevel-skincare.myshopify.com",ver:"2.16",plat:"SHOPIFY",isHeadless:false,src:'SHOPIFY_EXT',product:{id:"",name:``,price:"",variant:""},search:"",collection:"",cart:"drawer",template:"index",curr:"USD" || "USD"},function(W,H,A,L,E,_,B,N){function O(U,T,P,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,P?(H.open("POST",U,!0),H.setRequestHeader("Content-Type","text/plain")):H.open("GET",U,!0),H.send(JSON.stringify(P||{})),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes("/first")?eval(R):P||(N[B]=R)):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1,P))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1,L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)};try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push({u:location.href,r:document.referrer,t:Date.now(),id:L()}),A.setItem(H+"U",JSON.stringify(E))}catch(e){}var i,m,p;A.getItem('"!nC`')||(_=A,A=N,A[H]||(E=A[H]=function(t,e,i){return void 0===i&&(i=[]),"State"==t?E.s:(W=L(),(E._q=E._q||[]).push([W,t,e].concat(i)),W)},E.s="Installed",E._q=[],E.ch=W,B="configSecurityConfModel",N[B]=1,O("https://conf.config-security.com/model",5),i=L(),m=A[atob("c2NyZWVu")],_.setItem("di_pmt_wt",i),p={id:i,action:"profile",avatar:_.getItem("auth-security_rand_salt_"),time:m[atob("d2lkdGg=")]+":"+m[atob("aGVpZ2h0")],host:A.TriplePixelData.TripleName,plat:A.TriplePixelData.plat,url:window.location.href.slice(0,500),ref:document.referrer,ver:A.TriplePixelData.ver},O("https://api.config-security.com/event",5,p),O("https://api.config-security.com/first?host=".concat(p.host,"&plat=").concat(p.plat),5)))}}("","TriplePixel",localStorage);
+        /* << TriplePixel :: end*/
+    </script>
+
+
+
+    <!-- END app block --><!-- BEGIN app block: shopify://apps/yotpo-loyalty-rewards/blocks/loader-app-embed-block/2f9660df-5018-4e02-9868-ee1fb88d6ccd -->
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/yhZy8XxsewrNp5ZgFkmHPA" async=""></script>
+
+
+
+
+    <!-- END app block --><!-- BEGIN app block: shopify://apps/yotpo-product-reviews/blocks/settings/eb7dfd7d-db44-4334-bc49-c893b51b36cf -->
+
+
+    <script type="text/javascript" src="https://cdn-widgetsrepository.yotpo.com/v1/loader/26WErrzyukJTKZEE6uHO9gAdmrDGN2NjbHHs5Bla?languageCode=en" async=""></script>
+
+
+
+
+    <!-- END app block --><link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
+    <script>(function(){if ("sendBeacon" in navigator && "performance" in window) {try {var session_token_from_headers = performance.getEntriesByType('navigation')[0].serverTiming.find(x => x.name == '_s').description;} catch {var session_token_from_headers = undefined;}var session_cookie_matches = document.cookie.match(/_shopify_s=([^;]*)/);var session_token_from_cookie = session_cookie_matches && session_cookie_matches.length === 2 ? session_cookie_matches[1] : "";var session_token = session_token_from_headers || session_token_from_cookie || "";function handle_abandonment_event(e) {var entries = performance.getEntries().filter(function(entry) {return /monorail-edge.shopifysvc.com/.test(entry.name);});if (!window.abandonment_tracked && entries.length === 0) {window.abandonment_tracked = true;var currentMs = Date.now();var navigation_start = performance.timing.navigationStart;var payload = {shop_id: 86655762737,url: window.location.href,navigation_start,duration: currentMs - navigation_start,session_token,page_type: "index"};window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({schema_id: "online_store_buyer_site_abandonment/1.1",payload: payload,metadata: {event_created_at_ms: currentMs,event_sent_at_ms: currentMs}}));}}window.addEventListener('pagehide', handle_abandonment_event);}}());</script>
+    <script id="web-pixels-manager-setup">(function e(e,d,r,n,o){if(void 0===o&&(o={}),!Boolean(null===(a=null===(i=window.Shopify)||void 0===i?void 0:i.analytics)||void 0===a?void 0:a.replayQueue)){var i,a;window.Shopify=window.Shopify||{};var t=window.Shopify;t.analytics=t.analytics||{};var s=t.analytics;s.replayQueue=[],s.publish=function(e,d,r){return s.replayQueue.push([e,d,r]),!0};try{self.performance.mark("wpm:start")}catch(e){}var l=function(){var e={modern:/Edge?\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Firefox\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Chrom(ium|e)\/(9{2}|\d{3,})\.\d+(\.\d+|)|(Maci|X1{2}).+ Version\/(15\.\d+|(1[6-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(9{2}|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(15[._]\d+|(1[6-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](13[3-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Android.+Firefox\/(13[5-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(13[3-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|SamsungBrowser\/([2-9]\d|\d{3,})\.\d+/,legacy:/Edge?\/(1[6-9]|[2-9]\d|\d{3,})\.\d+(\.\d+|)|Firefox\/(5[4-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)|Chrom(ium|e)\/(5[1-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)([\d.]+$|.*Safari\/(?![\d.]+ Edge\/[\d.]+$))|(Maci|X1{2}).+ Version\/(10\.\d+|(1[1-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(3[89]|[4-9]\d|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(10[._]\d+|(1[1-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](13[3-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Mobile Safari.+OPR\/([89]\d|\d{3,})\.\d+\.\d+|Android.+Firefox\/(13[5-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(13[3-9]|1[4-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+(UC? ?Browser|UCWEB|U3)[ /]?(15\.([5-9]|\d{2,})|(1[6-9]|[2-9]\d|\d{3,})\.\d+)\.\d+|SamsungBrowser\/(5\.\d+|([6-9]|\d{2,})\.\d+)|Android.+MQ{2}Browser\/(14(\.(9|\d{2,})|)|(1[5-9]|[2-9]\d|\d{3,})(\.\d+|))(\.\d+|)|K[Aa][Ii]OS\/(3\.\d+|([4-9]|\d{2,})\.\d+)(\.\d+|)/},d=e.modern,r=e.legacy,n=navigator.userAgent;return n.match(d)?"modern":n.match(r)?"legacy":"unknown"}(),u="modern"===l?"modern":"legacy",c=(null!=n?n:{modern:"",legacy:""})[u],f=function(e){return[e.baseUrl,"/wpm","/b",e.hashVersion,"modern"===e.buildTarget?"m":"l",".js"].join("")}({baseUrl:d,hashVersion:r,buildTarget:u}),m=function(e){var d=e.version,r=e.bundleTarget,n=e.surface,o=e.pageUrl,i=e.monorailEndpoint;return{emit:function(e){var a=e.status,t=e.errorMsg,s=(new Date).getTime(),l=JSON.stringify({metadata:{event_sent_at_ms:s},events:[{schema_id:"web_pixels_manager_load/3.1",payload:{version:d,bundle_target:r,page_url:o,status:a,surface:n,error_msg:t},metadata:{event_created_at_ms:s}}]});if(!i)return console&&console.warn&&console.warn("[Web Pixels Manager] No Monorail endpoint provided, skipping logging."),!1;try{return self.navigator.sendBeacon.bind(self.navigator)(i,l)}catch(e){}var u=new XMLHttpRequest;try{return u.open("POST",i,!0),u.setRequestHeader("Content-Type","text/plain"),u.send(l),!0}catch(e){return console&&console.warn&&console.warn("[Web Pixels Manager] Got an unhandled error while logging to Monorail."),!1}}}}({version:r,bundleTarget:l,surface:e.surface,pageUrl:self.location.href,monorailEndpoint:e.monorailEndpoint});try{o.browserTarget=l,function(e){var d=e.src,r=e.async,n=void 0===r||r,o=e.onload,i=e.onerror,a=e.sri,t=e.scriptDataAttributes,s=void 0===t?{}:t,l=document.createElement("script"),u=document.querySelector("head"),c=document.querySelector("body");if(l.async=n,l.src=d,a&&(l.integrity=a,l.crossOrigin="anonymous"),s)for(var f in s)if(Object.prototype.hasOwnProperty.call(s,f))try{l.dataset[f]=s[f]}catch(e){}if(o&&l.addEventListener("load",o),i&&l.addEventListener("error",i),u)u.appendChild(l);else{if(!c)throw new Error("Did not find a head or body element to append the script");c.appendChild(l)}}({src:f,async:!0,onload:function(){if(!function(){var e,d;return Boolean(null===(d=null===(e=window.Shopify)||void 0===e?void 0:e.analytics)||void 0===d?void 0:d.initialized)}()){var d=window.webPixelsManager.init(e)||void 0;if(d){var r=window.Shopify.analytics;r.replayQueue.forEach((function(e){var r=e[0],n=e[1],o=e[2];d.publishCustomEvent(r,n,o)})),r.replayQueue=[],r.publish=d.publishCustomEvent,r.visitor=d.visitor,r.initialized=!0}}},onerror:function(){return m.emit({status:"failed",errorMsg:"".concat(f," has failed to load")})},sri:function(e){var d=/^sha384-[A-Za-z0-9+/=]+$/;return"string"==typeof e&&d.test(e)}(c)?c:"",scriptDataAttributes:o}),m.emit({status:"loading"})}catch(e){m.emit({status:"failed",errorMsg:(null==e?void 0:e.message)||"Unknown error"})}}})({shopId: 86655762737,storefrontBaseUrl: "https://getbevel.com",extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",monorailEndpoint: "https://monorail-edge.shopifysvc.com/unstable/produce_batch",surface: "storefront-renderer",enabledBetaFlags: ["2dca8a86"],webPixelsConfigList: [{"id":"1826816305","configuration":"{\"accountID\":\"RqwHWn\",\"webPixelConfig\":\"eyJlbmFibGVBZGRlZFRvQ2FydEV2ZW50cyI6IHRydWV9\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"9a3e1117c25e3d7955a2b89bcfe1cdfd","type":"APP","apiClientId":123074,"privacyPurposes":["ANALYTICS","MARKETING"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"1737851185","configuration":"{\"hashed_organization_id\":\"06453cca022654b2cc067d6d235d1e7f_v1\",\"app_key\":\"bevel-skincare\",\"allow_collect_personal_data\":\"true\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"c3e64302e4c6a915b615bb03ddf3784a","type":"APP","apiClientId":111542,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"1737556273","configuration":"{\"storeIdentity\":\"bevel-skincare.myshopify.com\",\"baseURL\":\"https:\\\/\\\/api.printful.com\\\/shopify-pixels\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"74f275712857ab41bea9d998dcb2f9da","type":"APP","apiClientId":156624,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"1605959985","configuration":"{\"myshopifyDomain\":\"bevel-skincare.myshopify.com\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"23b97d18e2aa74363140dc29c9284e87","type":"APP","apiClientId":2775569,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":[]}},{"id":"1476264241","configuration":"{\"pixelCode\":\"D1DCKQJC77U4RDUT34T0\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"22e92c2ad45662f435e4801458fb78cc","type":"APP","apiClientId":4383523,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"1372815665","configuration":"{\"store_id\":\"205879\",\"environment\":\"prod\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"e1b3f843f8a910884b33e33e956dd640","type":"APP","apiClientId":294517,"privacyPurposes":[],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"1116569905","configuration":"{\"cart_viewed\":\"true\",\"checkout_address_info_submitted\":\"true\",\"checkout_completed\":\"true\",\"checkout_contact_info_submitted\":\"true\",\"checkout_shipping_info_submitted\":\"true\",\"checkout_started\":\"true\",\"collection_viewed\":\"true\",\"page_viewed\":\"true\",\"payment_info_submitted\":\"true\",\"product_added_to_cart\":\"true\",\"product_removed_from_cart\":\"true\",\"product_viewed\":\"true\",\"search_submitted\":\"true\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"d22967f4146bb31a291ebb84fe6a1f71","type":"APP","apiClientId":100317265921,"privacyPurposes":["ANALYTICS"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":[]}},{"id":"921698609","configuration":"{\"shopId\":\"bevel-skincare.myshopify.com\"}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"d587b16acc2428bcc7719dbfbbdeb2df","type":"APP","apiClientId":2753413,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"814874929","configuration":"{\"config\":\"{\\\"google_tag_ids\\\":[\\\"AW-978141078\\\",\\\"GT-M6B9M6XG\\\"],\\\"target_country\\\":\\\"US\\\",\\\"gtag_events\\\":[{\\\"type\\\":\\\"search\\\",\\\"action_label\\\":\\\"AW-978141078\\\/OWPVCJCMu9EZEJb_tNID\\\"},{\\\"type\\\":\\\"begin_checkout\\\",\\\"action_label\\\":\\\"AW-978141078\\\/NfPxCJaMu9EZEJb_tNID\\\"},{\\\"type\\\":\\\"view_item\\\",\\\"action_label\\\":[\\\"AW-978141078\\\/hLcnCI2Mu9EZEJb_tNID\\\",\\\"MC-L4RJ04FDKF\\\"]},{\\\"type\\\":\\\"purchase\\\",\\\"action_label\\\":[\\\"AW-978141078\\\/aSjxCIeMu9EZEJb_tNID\\\",\\\"MC-L4RJ04FDKF\\\"]},{\\\"type\\\":\\\"page_view\\\",\\\"action_label\\\":[\\\"AW-978141078\\\/5639CIqMu9EZEJb_tNID\\\",\\\"MC-L4RJ04FDKF\\\"]},{\\\"type\\\":\\\"add_payment_info\\\",\\\"action_label\\\":\\\"AW-978141078\\\/0RjrCJmMu9EZEJb_tNID\\\"},{\\\"type\\\":\\\"add_to_cart\\\",\\\"action_label\\\":\\\"AW-978141078\\\/52bNCJOMu9EZEJb_tNID\\\"}],\\\"enable_monitoring_mode\\\":false}\"}","eventPayloadVersion":"v1","runtimeContext":"OPEN","scriptVersion":"b2a88bafab3e21179ed38636efcd8a93","type":"APP","apiClientId":1780363,"privacyPurposes":[],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"654246193","configuration":"{\"pixel_id\":\"258464844320147\",\"pixel_type\":\"facebook_pixel\",\"metaapp_system_user_token\":\"-\"}","eventPayloadVersion":"v1","runtimeContext":"OPEN","scriptVersion":"ca16bc87fe92b6042fbaa3acc2fbdaa6","type":"APP","apiClientId":2329312,"privacyPurposes":["ANALYTICS","MARKETING","SALE_OF_DATA"],"dataSharingAdjustments":{"protectedCustomerApprovalScopes":["read_customer_address","read_customer_email","read_customer_name","read_customer_personal_data","read_customer_phone"]}},{"id":"114622769","eventPayloadVersion":"1","runtimeContext":"LAX","scriptVersion":"20","type":"CUSTOM","privacyPurposes":["ANALYTICS","MARKETING"],"name":"TAG Custom Checkout"},{"id":"shopify-app-pixel","configuration":"{}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"0450","apiClientId":"shopify-pixel","type":"APP","privacyPurposes":["ANALYTICS","MARKETING"]},{"id":"shopify-custom-pixel","eventPayloadVersion":"v1","runtimeContext":"LAX","scriptVersion":"0450","apiClientId":"shopify-pixel","type":"CUSTOM","privacyPurposes":["ANALYTICS","MARKETING"]}],isMerchantRequest: false,initData: {"shop":{"name":"BEVEL","paymentSettings":{"currencyCode":"USD"},"myshopifyDomain":"bevel-skincare.myshopify.com","countryCode":"US","storefrontUrl":"https:\/\/getbevel.com"},"customer":null,"cart":null,"checkout":null,"productVariants":[],"purchasingCompany":null},},"https://getbevel.com/cdn","ae1676cfwd2530674p4253c800m34e853cb",{"modern":"","legacy":""},{"shopId":"86655762737","storefrontBaseUrl":"https:\/\/getbevel.com","extensionBaseUrl":"https:\/\/extensions.shopifycdn.com\/cdn\/shopifycloud\/web-pixels-manager","surface":"storefront-renderer","enabledBetaFlags":"[\"2dca8a86\"]","isMerchantRequest":"false","hashVersion":"ae1676cfwd2530674p4253c800m34e853cb","publish":"custom","events":"[[\"page_viewed\",{}]]"});</script><script async="" src="https://getbevel.com/cdn/wpm/bae1676cfwd2530674p4253c800m34e853cbm.js" data-shop-id="86655762737" data-storefront-base-url="https://getbevel.com" data-extension-base-url="https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager" data-surface="storefront-renderer" data-enabled-beta-flags="[&quot;2dca8a86&quot;]" data-is-merchant-request="false" data-hash-version="ae1676cfwd2530674p4253c800m34e853cb" data-publish="custom" data-events="[[&quot;page_viewed&quot;,{}]]" data-browser-target="modern"></script><script>
+    window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+    window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+    window.ShopifyAnalytics.meta.currency = 'USD';
+    var meta = {"page":{"pageType":"home"}};
+    for (var attr in meta) {
+        window.ShopifyAnalytics.meta[attr] = meta[attr];
+    }
+</script>
+    <script class="analytics">
+        (function () {
+            var customDocumentWrite = function(content) {
+                var jquery = null;
+
+                if (window.jQuery) {
+                    jquery = window.jQuery;
+                } else if (window.Checkout && window.Checkout.$) {
+                    jquery = window.Checkout.$;
+                }
+
+                if (jquery) {
+                    jquery('body').append(content);
+                }
+            };
+
+            var hasLoggedConversion = function(token) {
+                if (token) {
+                    return document.cookie.indexOf('loggedConversion=' + token) !== -1;
+                }
+                return false;
+            }
+
+            var setCookieIfConversion = function(token) {
+                if (token) {
+                    var twoMonthsFromNow = new Date(Date.now());
+                    twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+                    document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;
+                }
+            }
+
+            var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+            if (trekkie.integrations) {
+                return;
+            }
+            trekkie.methods = [
+                'identify',
+                'page',
+                'ready',
+                'track',
+                'trackForm',
+                'trackLink'
+            ];
+            trekkie.factory = function(method) {
+                return function() {
+                    var args = Array.prototype.slice.call(arguments);
+                    args.unshift(method);
+                    trekkie.push(args);
+                    return trekkie;
+                };
+            };
+            for (var i = 0; i < trekkie.methods.length; i++) {
+                var key = trekkie.methods[i];
+                trekkie[key] = trekkie.factory(key);
+            }
+            trekkie.load = function(config) {
+                trekkie.config = config || {};
+                trekkie.config.initialDocumentCookie = document.cookie;
+                var first = document.getElementsByTagName('script')[0];
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.onerror = function(e) {
+                    var scriptFallback = document.createElement('script');
+                    scriptFallback.type = 'text/javascript';
+                    scriptFallback.onerror = function(error) {
+                        var Monorail = {
+                            produce: function produce(monorailDomain, schemaId, payload) {
+                                var currentMs = new Date().getTime();
+                                var event = {
+                                    schema_id: schemaId,
+                                    payload: payload,
+                                    metadata: {
+                                        event_created_at_ms: currentMs,
+                                        event_sent_at_ms: currentMs
+                                    }
+                                };
+                                return Monorail.sendRequest("https://" + monorailDomain + "/v1/produce", JSON.stringify(event));
+                            },
+                            sendRequest: function sendRequest(endpointUrl, payload) {
+                                // Try the sendBeacon API
+                                if (window && window.navigator && typeof window.navigator.sendBeacon === 'function' && typeof window.Blob === 'function' && !Monorail.isIos12()) {
+                                    var blobData = new window.Blob([payload], {
+                                        type: 'text/plain'
+                                    });
+
+                                    if (window.navigator.sendBeacon(endpointUrl, blobData)) {
+                                        return true;
+                                    } // sendBeacon was not successful
+
+                                } // XHR beacon
+
+                                var xhr = new XMLHttpRequest();
+
+                                try {
+                                    xhr.open('POST', endpointUrl);
+                                    xhr.setRequestHeader('Content-Type', 'text/plain');
+                                    xhr.send(payload);
+                                } catch (e) {
+                                    console.log(e);
+                                }
+
+                                return false;
+                            },
+                            isIos12: function isIos12() {
+                                return window.navigator.userAgent.lastIndexOf('iPhone; CPU iPhone OS 12_') !== -1 || window.navigator.userAgent.lastIndexOf('iPad; CPU OS 12_') !== -1;
+                            }
+                        };
+                        Monorail.produce('monorail-edge.shopifysvc.com',
+                            'trekkie_storefront_load_errors/1.1',
+                            {shop_id: 86655762737,
+                                theme_id: 181569847601,
+                                app_name: "storefront",
+                                context_url: window.location.href,
+                                source_url: "//getbevel.com/cdn/s/trekkie.storefront.308893168db1679b4a9f8a086857af995740364f.min.js"});
+
+                    };
+                    scriptFallback.async = true;
+                    scriptFallback.src = '//getbevel.com/cdn/s/trekkie.storefront.308893168db1679b4a9f8a086857af995740364f.min.js';
+                    first.parentNode.insertBefore(scriptFallback, first);
+                };
+                script.async = true;
+                script.src = '//getbevel.com/cdn/s/trekkie.storefront.308893168db1679b4a9f8a086857af995740364f.min.js';
+                first.parentNode.insertBefore(script, first);
+            };
+            trekkie.load(
+                {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":86655762737,"isMerchantRequest":null,"themeId":181569847601,"themeCityHash":"385146485944357541","contentLanguage":"en","currency":"USD"},"isServerSideCookieWritingEnabled":true,"monorailRegion":"shop_domain","enabledBetaFlags":["f0df213a"]},"Session Attribution":{},"S2S":{"facebookCapiEnabled":true,"source":"trekkie-storefront-renderer","apiClientId":580111}}
+            );
+
+            var loaded = false;
+            trekkie.ready(function() {
+                if (loaded) return;
+                loaded = true;
+
+                window.ShopifyAnalytics.lib = window.trekkie;
+
+                var originalDocumentWrite = document.write;
+                document.write = customDocumentWrite;
+                try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+                document.write = originalDocumentWrite;
+
+                window.ShopifyAnalytics.lib.page(null,{"pageType":"home","shopifyEmitted":true});
+
+                var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)
+                var token = match? match[1]: undefined;
+                if (!hasLoggedConversion(token)) {
+                    setCookieIfConversion(token);
+
+                }
+            });
+
+
+            var eventsListenerScript = document.createElement('script');
+            eventsListenerScript.async = true;
+            eventsListenerScript.src = "//getbevel.com/cdn/shopifycloud/storefront/assets/shop_events_listener-3da45d37.js";
+            document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+
+        })();</script><script async="" src="//getbevel.com/cdn/shopifycloud/storefront/assets/shop_events_listener-3da45d37.js"></script>
+    <script defer="" src="https://getbevel.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-2.1.2.min.js" data-application="storefront-renderer" data-shop-id="86655762737" data-render-region="gcp-us-west1" data-page-type="index" data-theme-instance-id="181569847601" data-theme-name="Bevel" data-theme-version="v1.9.0" data-monorail-region="shop_domain" data-resource-timing-sampling-rate="10" data-shs="true" data-shs-beacon="true" data-shs-export-with-fetch="true" data-shs-logs-sample-rate="1"></script>
+    <script type="module" defer="" src="https://getbevel.com/cdn/shopifycloud/consent-tracking-api/v0.1/consent-tracking-api.js"></script><style>@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false;initial-value:rotateX(0)}@property --tw-rotate-y{syntax:"*";inherits:false;initial-value:rotateY(0)}@property --tw-rotate-z{syntax:"*";inherits:false;initial-value:rotateZ(0)}@property --tw-skew-x{syntax:"*";inherits:false;initial-value:skewX(0)}@property --tw-skew-y{syntax:"*";inherits:false;initial-value:skewY(0)}@property --tw-space-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-ease{syntax:"*";inherits:false}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@keyframes spin{to{transform:rotate(360deg)}}</style><style>@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false;initial-value:rotateX(0)}@property --tw-rotate-y{syntax:"*";inherits:false;initial-value:rotateY(0)}@property --tw-rotate-z{syntax:"*";inherits:false;initial-value:rotateZ(0)}@property --tw-skew-x{syntax:"*";inherits:false;initial-value:skewX(0)}@property --tw-skew-y{syntax:"*";inherits:false;initial-value:skewY(0)}@property --tw-space-y-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-outline-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-ease{syntax:"*";inherits:false}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@keyframes spin{to{transform:rotate(360deg)}}</style><style>.village-iframe{width:100%;height:100%;border:none;display:block;position:fixed;top:0;left:0;z-index:2147483647;background:#0000003d;color-scheme:light}.village-iframe.village-loading{display:flex;justify-content:center;align-items:center}.village-iframe>.village-spinner{width:1.5rem;height:1.5rem;border:2px solid #000;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin .45s linear infinite}.village-iframe.village-hidden{display:none}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.village-hidden{display:none}[village-paths-data=facepiles]{display:flex;align-items:center;padding-right:.5rem}[village-paths-data=facepiles] img{width:1.5rem;height:1.5rem;border-radius:50%;margin-right:-.5rem}[village-paths-data=facepiles] img.village-facepiler-avatar-not-found{filter:blur(7px)}[village-paths-data=facepiles] img:last-child{margin-right:0}[village-paths-data=count]{padding-right:.25rem}[village-paths-availability=error],[village-paths-availability=found],[village-paths-availability=not-found],[village-paths-availability=not-activated]{display:none!important}[village-paths-availability=loading]{display:inline-flex!important}</style><style data-description="gravity-font-faces">
+    @font-face {
+        font-family: 'GTStandard-M';
+        src: url('https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MRegular.woff2')
+        format('woff2');
+        font-style: normal;
+        font-weight: 450;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'GTStandard-M';
+        src: url('https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MMedium.woff2')
+        format('woff2');
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'GTStandard-M';
+        src: url('https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MSemibold.woff2')
+        format('woff2');
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+    }</style><script src="https://cdn-widgetsrepository.yotpo.com/widget-assets/yotpo-pixel/2024-04-18_14-53-12/bundle.js" defer="" type="text/javascript" charset="utf-8"></script><script src="https://cdn-widgetsrepository.yotpo.com/widget-assets/widgets-initializer/app.v0.9.6-7348.js" async="" type="text/javascript" charset="utf-8"></script><script src="https://cdn-widgetsrepository.yotpo.com/widget-assets/yotpo-pixel/2024-04-18_14-53-12/bundle.js" defer="" type="text/javascript" charset="utf-8"></script><script src="https://cdn-widgetsrepository.yotpo.com/widget-assets/widgets-initializer/app.v0.9.6-7348.js" async="" type="text/javascript" charset="utf-8"></script><script id="simplify-jobs-page-script" src="chrome-extension://pbanhockgagggenencehbnadejlgchfc/js/pageScript.bundle.js"></script><style>.yotpo-widget-empty-placeholder { display: block!important; }</style><style class="yotpo-font">@import url('https://cdn-widgetsrepository.yotpo.com/web-fonts/css/nunito_sans/v1/nunito_sans_700.css');</style><style class="yotpo-font">@import url('https://cdn-widgetsrepository.yotpo.com/web-fonts/css/nunito_sans/v1/nunito_sans_400.css');</style><script src="https://cdn-widgetsrepository.yotpo.com/widget-assets/widget-reviews-star-ratings/app.v0.25.2-7409.js" async=""></script><style>.yotpo-widget-empty-placeholder { display: block!important; }</style><style class="yotpo-reviews-star-ratings-widget-css">
+    .yotpo-reviews-star-ratings-widget {
+        display: flex;
+        a:empty, article:empty, div:empty, dl:empty, h1:empty, h2:empty, h3:empty, h4:empty, h5:empty, h6:empty, p:empty, section:empty, ul:empty {
+            display: block;
+        }
+    }
+    [v-cloak] {
+        display: none;
+    }
+
+    .yotpo-star-rating-reviews-summary-text:hover {
+        cursor: pointer;
+    }
+
+    .yotpo-highly-rated-topics-content {
+        display: inline-flex;
+        gap: 0; /* Ensures no space between elements */
+        cursor: pointer !important;
+    }
+
+    .yotpo-topic-underline {
+        text-decoration: underline !important;
+        cursor: pointer !important;
+    }
+
+    .yotpo-topic-comma {
+        text-decoration: none;
+        cursor: pointer !important;
+    }
+
+    .yotpo-bottom-line-scroll-panel .yotpo-sr-bottom-line-button {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        text-decoration: none;
+    }
+
+    .yotpo-sr-bottom-line-button:focus-visible {
+        outline: #000 auto 2px;
+        box-shadow: 0 0 0 4px #fff;
+    }
+
+    .yotpo-sr-bottom-line-button .yotpo-sr-bottom-line-text,
+    .yotpo-sr-bottom-line-button .yotpo-sr-bottom-line-score {
+        cursor: pointer;
+    }
+
+    .yotpo-sr-bottom-line-score, .yotpo-sr-bottom-line-text {
+        margin: 0;
+        padding: 0;
+    }
+
+    .yotpo-widget-clear {
+        animation: none;
+        animation-delay: 0;
+        animation-direction: normal;
+        animation-duration: 0;
+        animation-fill-mode: none;
+        animation-iteration-count: 1;
+        animation-name: none;
+        animation-play-state: running;
+        animation-timing-function: ease;
+        backface-visibility: visible;
+        background: 0;
+        background-attachment: scroll;
+        background-clip: border-box;
+        background-color: transparent;
+        background-image: none;
+        background-origin: padding-box;
+        background-position: 0 0;
+        background-position-x: 0;
+        background-position-y: 0;
+        background-repeat: repeat;
+        background-size: auto auto;
+        border: 0;
+        border-style: none;
+        border-width: medium;
+        border-color: inherit;
+        border-bottom: 0;
+        border-bottom-color: inherit;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-style: none;
+        border-bottom-width: medium;
+        border-collapse: separate;
+        border-image: none;
+        border-left: 0;
+        border-left-color: inherit;
+        border-left-style: none;
+        border-left-width: medium;
+        border-radius: 0;
+        border-right: 0;
+        border-right-color: inherit;
+        border-right-style: none;
+        border-right-width: medium;
+        border-spacing: 0;
+        border-top: 0;
+        border-top-color: inherit;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top-style: none;
+        border-top-width: medium;
+        bottom: auto;
+        box-shadow: none;
+        box-sizing: content-box;
+        caption-side: top;
+        clear: none;
+        clip: auto;
+        color: inherit;
+        columns: auto;
+        column-count: auto;
+        column-fill: balance;
+        column-gap: normal;
+        column-rule: medium none currentColor;
+        column-rule-color: currentColor;
+        column-rule-style: none;
+        column-rule-width: none;
+        column-span: 1;
+        column-width: auto;
+        content: normal;
+        counter-increment: none;
+        counter-reset: none;
+        cursor: auto;
+        direction: ltr;
+        display: inline;
+        empty-cells: show;
+        float: none;
+        font: normal;
+        font-family: var(--primary-font-family);
+        font-style: var(--primary-font-style);
+        font-weight: var(--primary-font-weight);
+        font-size: medium;
+        font-variant: normal;
+        height: auto;
+        hyphens: none;
+        left: auto;
+        letter-spacing: normal;
+        line-height: normal;
+        list-style: none;
+        list-style-image: none;
+        list-style-position: outside;
+        list-style-type: disc;
+        margin: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        max-height: none;
+        max-width: none;
+        min-height: 0;
+        min-width: 0;
+        opacity: 1;
+        orphans: 0;
+        outline: 0;
+        outline-color: invert;
+        outline-style: none;
+        outline-width: medium;
+        overflow: visible;
+        overflow-x: visible;
+        overflow-y: visible;
+        padding: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        page-break-after: auto;
+        page-break-before: auto;
+        page-break-inside: auto;
+        perspective: none;
+        perspective-origin: 50% 50%;
+        position: static;
+        right: auto;
+        tab-size: 8;
+        table-layout: auto;
+        text-align: inherit;
+        text-align-last: auto;
+        text-decoration: none;
+        text-decoration-color: inherit;
+        text-decoration-line: none;
+        text-decoration-style: solid;
+        text-indent: 0;
+        text-shadow: none;
+        text-transform: none;
+        top: auto;
+        transform: none;
+        transform-style: flat;
+        transition: none;
+        transition-delay: 0s;
+        transition-duration: 0s;
+        transition-property: none;
+        transition-timing-function: ease;
+        unicode-bidi: normal;
+        vertical-align: baseline;
+        visibility: visible;
+        white-space: normal;
+        word-break: normal;
+        widows: 0;
+        width: auto;
+        word-spacing: normal;
+        z-index: auto;
+    }
+
+    .sr-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style></head>
+        <meta charset="utf-8" />
+        <title>Lumina Demo – skincare_expert</title>
+<style>
+  .lumina-frame {
+    position: relative;
+    border-radius: 20px;     /* purely visual */
+  }
+
+  /* keep contents positioned normally */
+  .lumina-frame > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Outer halo that sits behind the hero */
+  .lumina-frame::before {
+    content: "";
+    position: absolute;
+    inset: -10px;            /* extend outside */
+    border-radius: inherit;
+
+    background: linear-gradient(
+      120deg,
+      #22d3ee,
+      #a855f7,
+      #f97316,
+      #22d3ee
+    );
+    background-size: 200% 200%;
+    animation: luminaBorder 6s linear infinite;
+
+    filter: blur(14px);      /* soft glow */
+    opacity: 0.7;
+
+    z-index: 0;              /* behind content */
+    pointer-events: none;
+  }
+
+  /* Translucent overlay on TOP of the hero (this is what you’re asking for) */
+  .lumina-frame--overlay::after {
+    content: "";
+    position: absolute;
+    inset: -2px;             /* just slightly bigger than content area */
+    border-radius: inherit;
+
+    /* Make this mostly near the edges so it feels like a border overlay,
+       but still spills slightly over the whole hero */
+    background:
+      radial-gradient(circle at 0% 0%,  rgba(34, 211, 238, 0.25), transparent 60%),
+      radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.25), transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(249, 115, 22, 0.2), transparent 65%);
+
+    mix-blend-mode: screen;  /* let it mix with the hero image */
+    opacity: 0.6;            /* tune this for more/less overlay */
+
+    z-index: 2;              /* ABOVE your hero/image/text */
+    pointer-events: none;    /* doesn’t block clicks or scroll */
+  }
+
+  @keyframes luminaBorder {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* optional thinner radius variant */
+  .lumina-frame--thin {
+    border-radius: 14px;
+  }
+</style>
+
+
+      </head>
+  
+      <body>
+        <header id="shopify-section-sections--25364809613617__header" class="shopify-section shopify-section-group-header-group shopify-section--header"><style>
+  :root {
+    --header-is-sticky: 1;
+  }
+
+  #shopify-section-sections--25364809613617__header {
+    --header-grid: "primary-nav logo secondary-nav" / minmax(0, 1fr) auto minmax(0, 1fr);
+    --header-padding-block: 1rem;
+    --header-transparent-header-text-color: 255 255 255;
+    --header-separation-border-color: 255 255 255 / 0.15;
+
+    position: relative;
+    z-index: 4;
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-sections--25364809613617__header {
+      --header-padding-block: 1.6rem;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-sections--25364809613617__header {--header-grid: "logo primary-nav secondary-nav" / auto minmax(0, 1fr) auto;}
+  }#shopify-section-sections--25364809613617__header {
+      position: sticky;
+      top: 0;
+    }
+
+    .shopify-section--announcement-bar ~ #shopify-section-sections--25364809613617__header {
+      top: calc(var(--announcement-bar-is-sticky, 0) * var(--announcement-bar-height, 0px));
+    }#shopify-section-sections--25364809613617__header {
+      --header-logo-width: 95px;
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-sections--25364809613617__header {
+        --header-logo-width: 125px;
+      }
+    }</style>
+
+<height-observer variable="header">
+  <x-header class="header color-scheme color-scheme--scheme-80c772be-3918-45f2-8597-86e8cab42e61 is-solid"><h1 class="header__logo">
+        <a href="/"><span class="sr-only">BEVEL</span><img src="//getbevel.com/cdn/shop/files/Bevel_Logo_WHT.svg?v=1727985371&amp;width=80" alt="Bevel" srcset="//getbevel.com/cdn/shop/files/Bevel_Logo_WHT.svg?v=1727985371&amp;width=80 80w, //getbevel.com/cdn/shop/files/Bevel_Logo_WHT.svg?v=1727985371&amp;width=80 80w" width="80" height="16" sizes="125px" class="header__logo-image"></a>
+      </h1>
+    
+<nav class="header__primary-nav " aria-label="Primary navigation">
+        <button type="button" aria-controls="sidebar-menu" class="md:hidden">
+          <span class="sr-only">Open navigation menu</span><svg aria-hidden="true" fill="none" focusable="false" width="24" class="header__nav-icon icon icon-hamburger" viewBox="0 0 24 24">
+      <path d="M1 19h22M1 12h22M1 5h22" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"></path>
+    </svg></button><ul class="contents unstyled-list md-max:hidden">
+
+              <li class="header__primary-nav-item" data-title="Devices"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/devices" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/devices">Devices</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/devices" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/devices">
+            DEVICES
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/electric-foil-shaver" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/electric-foil-shaver">
+                    ELECTRIC SHAVER
+                  </a>
+                </li><li>
+                  <a href="/products/trimmer" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/trimmer">
+                    TRIMMER
+                  </a>
+                </li><li>
+                  <a href="/products/trimmer-tblade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/trimmer-tblade">
+                    TRIMMER + T-BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-pro" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-pro">
+                    ALL-IN-ONE PRO CLIPPER
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-pro-t-blade-bundle" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-pro-t-blade-bundle">
+                    PRO + PRO T-BLADE
+                  </a>
+                </li><li>
+                  <a href="/collections/devices" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/devices">
+                    VIEW ALL
+                  </a>
+                </li></ul></li><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/devices" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/devices">
+            ACCESSORIES
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/square-blade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/square-blade">
+                    TRIMMER SQUARE BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/t-blade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/t-blade">
+                    TRIMMER T-BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-pro-t-blade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-pro-t-blade">
+                    PRO T-BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/charging-stand" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/charging-stand">
+                    CHARGING STAND
+                  </a>
+                </li><li>
+                  <a href="/collections/devices" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/devices">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/bevel-pro" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/Bevel_Pro_GuardsFalling_White_V2.png?v=1762480963&amp;width=4800" alt="" srcset="//getbevel.com/cdn/shop/files/Bevel_Pro_GuardsFalling_White_V2.png?v=1762480963&amp;width=315 315w, //getbevel.com/cdn/shop/files/Bevel_Pro_GuardsFalling_White_V2.png?v=1762480963&amp;width=630 630w, //getbevel.com/cdn/shop/files/Bevel_Pro_GuardsFalling_White_V2.png?v=1762480963&amp;width=945 945w" width="4800" height="4800" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:52.539% 49.414%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Pro</p><p class="smallcaps text-xs text-subdued">All-in-One Clipper &amp; Trimmer</p></div></a><a href="/products/bevel-electric-shave-essentials-kit" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/1_e11bab4c-3f43-4b5d-af8b-94ab14af76a9.png?v=1762484989&amp;width=1080" alt="A set of grooming products including a black Bevel electric shaver, a bottle of Bevel Clear Shave Gel, and a tube of Bevel Post Shave Bump Control." srcset="//getbevel.com/cdn/shop/files/1_e11bab4c-3f43-4b5d-af8b-94ab14af76a9.png?v=1762484989&amp;width=315 315w, //getbevel.com/cdn/shop/files/1_e11bab4c-3f43-4b5d-af8b-94ab14af76a9.png?v=1762484989&amp;width=630 630w, //getbevel.com/cdn/shop/files/1_e11bab4c-3f43-4b5d-af8b-94ab14af76a9.png?v=1762484989&amp;width=945 945w" width="1080" height="1080" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:30.078% 30.078%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Electric Shave Essentials</p><p class="smallcaps text-xs text-subdued">A Close Shave with Maximum Skin Comfort</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Shave"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/shave" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">Shave</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/shave" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">
+            SHAVE
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/safety-razor" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/safety-razor">
+                    PREMIUM SAFETY RAZOR
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-essential-disposable-razor" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-essential-disposable-razor">
+                    ESSENTIAL DISPOSABLE RAZOR 5 PACK
+                  </a>
+                </li><li>
+                  <a href="/products/pre-shave-oil" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/pre-shave-oil">
+                    PRE-SHAVE OIL
+                  </a>
+                </li><li>
+                  <a href="/products/clear-shave-gel" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/clear-shave-gel">
+                    CLEAR SHAVE GEL
+                  </a>
+                </li><li>
+                  <a href="/products/shave-cream" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/shave-cream">
+                    SHAVE CREAM
+                  </a>
+                </li><li>
+                  <a href="/products/post-shave-balm" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/post-shave-balm">
+                    POST-SHAVE BALM
+                  </a>
+                </li><li>
+                  <a href="/products/post-shave-bump-control" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/post-shave-bump-control">
+                    POST SHAVE BUMP CONTROL
+                  </a>
+                </li><li>
+                  <a href="/collections/shave" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">
+                    VIEW ALL
+                  </a>
+                </li></ul></li><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/shave" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">
+            ACCESSORIES
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/blades" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/blades">
+                    REPLACEMENT RAZOR BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/shave-brush" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/shave-brush">
+                    SHAVE BRUSH
+                  </a>
+                </li><li>
+                  <a href="/products/razor-brush-stand" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/razor-brush-stand">
+                    SHAVE STAND
+                  </a>
+                </li><li>
+                  <a href="/collections/shave" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">
+                    VIEW ALL
+                  </a>
+                </li></ul></li><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/shave" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">
+            KITS
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/ninety-day-starter" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/ninety-day-starter">
+                    PREMIUM SHAVE STARTER KIT
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-essential-disposable-starter-kit" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-essential-disposable-starter-kit">
+                    ESSENTIAL DISPOSABLE SHAVE KIT
+                  </a>
+                </li><li>
+                  <a href="/products/shave-replen-kit" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/shave-replen-kit">
+                    SHAVE KIT REPLENISHMENT
+                  </a>
+                </li><li>
+                  <a href="/collections/shave" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/shave">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/ninety-day-starter" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/New_shaveKit_FOP-shadow.png?v=1757536786&amp;width=1080" alt="" srcset="//getbevel.com/cdn/shop/files/New_shaveKit_FOP-shadow.png?v=1757536786&amp;width=315 315w, //getbevel.com/cdn/shop/files/New_shaveKit_FOP-shadow.png?v=1757536786&amp;width=630 630w, //getbevel.com/cdn/shop/files/New_shaveKit_FOP-shadow.png?v=1757536786&amp;width=945 945w" width="1080" height="1080" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Shave Kit</p><p class="smallcaps text-xs text-subdued">Bevel Premium Shave Starter Kit</p></div></a><a href="/products/safety-razor" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/800439_1.webp?v=1736531182&amp;width=996" alt="" srcset="//getbevel.com/cdn/shop/files/800439_1.webp?v=1736531182&amp;width=315 315w, //getbevel.com/cdn/shop/files/800439_1.webp?v=1736531182&amp;width=630 630w, //getbevel.com/cdn/shop/files/800439_1.webp?v=1736531182&amp;width=945 945w" width="996" height="996" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Premium Safety Razor</p><p class="smallcaps text-xs text-subdued">Limited Edition Black</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Hair"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/hair" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/hair">Hair</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/hair" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/hair">
+            HAIR
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/3-in-1-hair-oil" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/3-in-1-hair-oil">
+                    3-IN-1 HAIR OIL
+                  </a>
+                </li><li>
+                  <a href="/products/hair-beard-pomade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/hair-beard-pomade">
+                    2-IN-1 POMADE
+                  </a>
+                </li><li>
+                  <a href="/products/brush-comb-set" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/brush-comb-set">
+                    BEVEL BRUSH AND COMB SET
+                  </a>
+                </li><li>
+                  <a href="/products/moisturizing-shampoo" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/moisturizing-shampoo">
+                    BEVEL SULFATE FREE SHAMPOO
+                  </a>
+                </li><li>
+                  <a href="/products/moisturizing-conditioner" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/moisturizing-conditioner">
+                    BEVEL SULFATE FREE CONDITIONER
+                  </a>
+                </li><li>
+                  <a href="/collections/hair" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/hair">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/3-in-1-hair-oil" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_9dc7bc5f-b565-4b1d-8077-c6d2f0998bad.webp?v=1728417776&amp;width=3000" alt="3 in 1 hair oil" srcset="//getbevel.com/cdn/shop/files/gallery_2_9dc7bc5f-b565-4b1d-8077-c6d2f0998bad.webp?v=1728417776&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_9dc7bc5f-b565-4b1d-8077-c6d2f0998bad.webp?v=1728417776&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_9dc7bc5f-b565-4b1d-8077-c6d2f0998bad.webp?v=1728417776&amp;width=945 945w" width="3000" height="3000" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom"></div><div class="v-stack text-center gap-2.5"><p class="h6">3-in-1 hair oil</p><p class="smallcaps text-xs text-subdued">Moisturizes + Nourishes</p></div></a><a href="/products/hair-beard-pomade" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_2c9350ca-0229-4dda-9077-859dacce324e.webp?v=1762480943&amp;width=2400" alt="" srcset="//getbevel.com/cdn/shop/files/gallery_2_2c9350ca-0229-4dda-9077-859dacce324e.webp?v=1762480943&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_2c9350ca-0229-4dda-9077-859dacce324e.webp?v=1762480943&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_2c9350ca-0229-4dda-9077-859dacce324e.webp?v=1762480943&amp;width=945 945w" width="2400" height="2400" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:49.121% 50.0%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Pomade</p><p class="smallcaps text-xs text-subdued">For Waves and Beards</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Body"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/body" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/body">Body</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/body" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/body">
+            BODY
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/bevel-exfoliating-body-wash" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-exfoliating-body-wash">
+                    EXFOLIATING BODY WASH
+                  </a>
+                </li><li>
+                  <a href="/products/body-wash" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/body-wash">
+                    MOISTURIZING BODY WASH
+                  </a>
+                </li><li>
+                  <a href="/products/deodorant" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/deodorant">
+                    ALUMINUM-FREE DEODORANT
+                  </a>
+                </li><li>
+                  <a href="/products/lotion" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/lotion">
+                    BODY LOTION
+                  </a>
+                </li><li>
+                  <a href="/products/body-essentials" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/body-essentials">
+                    BODY ESSENTIALS BUNDLE
+                  </a>
+                </li><li>
+                  <a href="/collections/body" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/body">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/body-wash" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/800420-1_2_6ca60eb5-2f42-4f01-98ea-154efe0a74a5.webp?v=1762480931&amp;width=1000" alt="" srcset="//getbevel.com/cdn/shop/files/800420-1_2_6ca60eb5-2f42-4f01-98ea-154efe0a74a5.webp?v=1762480931&amp;width=315 315w, //getbevel.com/cdn/shop/files/800420-1_2_6ca60eb5-2f42-4f01-98ea-154efe0a74a5.webp?v=1762480931&amp;width=630 630w, //getbevel.com/cdn/shop/files/800420-1_2_6ca60eb5-2f42-4f01-98ea-154efe0a74a5.webp?v=1762480931&amp;width=945 945w" width="1000" height="1000" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:49.512% 50.0%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Moisturizing Body Wash</p><p class="smallcaps text-xs text-subdued">Gentle and Effective Cleansing</p></div></a><a href="/products/lotion" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_c3d74621-e175-4315-89b8-2a7c55ba7c23.webp?v=1762480931&amp;width=2400" alt="" srcset="//getbevel.com/cdn/shop/files/gallery_2_c3d74621-e175-4315-89b8-2a7c55ba7c23.webp?v=1762480931&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_c3d74621-e175-4315-89b8-2a7c55ba7c23.webp?v=1762480931&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_c3d74621-e175-4315-89b8-2a7c55ba7c23.webp?v=1762480931&amp;width=945 945w" width="2400" height="2400" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:49.512% 50.0%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Moisturizing Body Lotion</p><p class="smallcaps text-xs text-subdued">Hold Moisture + Increase Softneess</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Skin"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/skin" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/skin">Skin</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/skin" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/skin">
+            SKIN
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/face-wash" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/face-wash">
+                    2-IN-1 BEARD &amp; FACE WASH
+                  </a>
+                </li><li>
+                  <a href="/products/toner" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/toner">
+                    EXFOLIATING TONER PADS
+                  </a>
+                </li><li>
+                  <a href="/products/face-gel" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/face-gel">
+                    MOISTURIZING FACE GEL
+                  </a>
+                </li><li>
+                  <a href="/products/skin-essentials" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/skin-essentials">
+                    SKIN ESSENTIALS BUNDLE
+                  </a>
+                </li><li>
+                  <a href="/collections/skin" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/skin">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/face-wash" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_194aa976-1291-409d-b9a5-32612d7a96a6.webp?v=1728418383&amp;width=1000" alt="face and beard wash" srcset="//getbevel.com/cdn/shop/files/gallery_2_194aa976-1291-409d-b9a5-32612d7a96a6.webp?v=1728418383&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_194aa976-1291-409d-b9a5-32612d7a96a6.webp?v=1728418383&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_194aa976-1291-409d-b9a5-32612d7a96a6.webp?v=1728418383&amp;width=945 945w" width="1000" height="1000" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom"></div><div class="v-stack text-center gap-2.5"><p class="h6">2-In-1 Face and Beard Wash</p><p class="smallcaps text-xs text-subdued">Cleanses and hydrates</p></div></a><a href="/products/skin-essentials" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=1772" alt="" srcset="//getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=945 945w" width="1772" height="1772" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:48.0603% 52.5862%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Skin Essentials Kit</p><p class="smallcaps text-xs text-subdued">The Complete Skin Care Set</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Beard"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/beard" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/beard">Beard</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/beard" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/beard">
+            Beard
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/hair-beard-pomade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/hair-beard-pomade">
+                    2-IN-1 POMADE
+                  </a>
+                </li><li>
+                  <a href="/products/beard-conditioner" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/beard-conditioner">
+                    BEARD CONDITIONER
+                  </a>
+                </li><li>
+                  <a href="/products/beard-oil" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/beard-oil">
+                    BEARD OIL
+                  </a>
+                </li><li>
+                  <a href="/collections/beard" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/beard">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/beard-goals-kit" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_e298c5bf-bda9-4d14-bb73-77b5a117a85e.webp?v=1762480943&amp;width=1772" alt="" srcset="//getbevel.com/cdn/shop/files/gallery_2_e298c5bf-bda9-4d14-bb73-77b5a117a85e.webp?v=1762480943&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_e298c5bf-bda9-4d14-bb73-77b5a117a85e.webp?v=1762480943&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_e298c5bf-bda9-4d14-bb73-77b5a117a85e.webp?v=1762480943&amp;width=945 945w" width="1772" height="1772" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:47.5216% 50.1078%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Beard Goals Kit</p><p class="smallcaps text-xs text-subdued">Complete Beard Care Kit</p></div></a><a href="/products/beard-conditioner" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_35f472af-7726-4a52-9a67-da5270e10069.webp?v=1728418702&amp;width=2400" alt="Beard conditioner" srcset="//getbevel.com/cdn/shop/files/gallery_2_35f472af-7726-4a52-9a67-da5270e10069.webp?v=1728418702&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_35f472af-7726-4a52-9a67-da5270e10069.webp?v=1728418702&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_35f472af-7726-4a52-9a67-da5270e10069.webp?v=1728418702&amp;width=945 945w" width="2400" height="2400" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom"></div><div class="v-stack text-center gap-2.5"><p class="h6">Beard conditioner</p><p class="smallcaps text-xs text-subdued">Softens coarse beards</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Bundles"><a href="/collections/bundles" class="block h6">Bundles</a></li>
+
+              <li class="header__primary-nav-item" data-title="Gifts"><details is="mega-menu-disclosure" class="header__menu-disclosure" follow-summary-link="" trigger="hover" aria-expanded="false">
+                    <summary data-follow-link="/collections/gift" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/gift">Gifts</summary><div class="mega-menu "><ul class="mega-menu__linklist unstyled-list"><li class="v-stack justify-items-start gap-5">
+          <a href="/collections/gift" class="h6 standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/gift">
+            GIFT
+          </a><ul class="v-stack gap-2.5 unstyled-list"><li>
+                  <a href="/products/bevel-electric-shave-essentials-kit" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-electric-shave-essentials-kit">
+                    ELECTRIC SHAVE ESSENTIALS KIT
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-gift-card" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-gift-card">
+                    GIFT CARD
+                  </a>
+                </li><li>
+                  <a href="/products/ninety-day-starter" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/ninety-day-starter">
+                    PREMIUM SHAVE STARTER KIT
+                  </a>
+                </li><li>
+                  <a href="/products/safety-razor" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/safety-razor">
+                    PREMIUM SAFETY RAZOR
+                  </a>
+                </li><li>
+                  <a href="/products/trimmer-tblade" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/trimmer-tblade">
+                    TRIMMER T-BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/bevel-pro-t-blade-bundle" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/bevel-pro-t-blade-bundle">
+                    PRO + PRO T-BLADE
+                  </a>
+                </li><li>
+                  <a href="/products/beard-goals-kit" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/beard-goals-kit">
+                    BEARD GOALS KIT
+                  </a>
+                </li><li>
+                  <a href="/products/skin-essentials" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/skin-essentials">
+                    SKIN ESSENTIALS BUNDLE
+                  </a>
+                </li><li>
+                  <a href="/products/body-essentials" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/products/body-essentials">
+                    BODY ESSENTIALS BUNDLE
+                  </a>
+                </li><li>
+                  <a href="/collections/gift" class="link-faded standard-event" data-event-category="event_informational_action" data-event-action="event_menu_click" data-event-label="/collections/gift">
+                    VIEW ALL
+                  </a>
+                </li></ul></li></ul><div class="mega-menu__promo"><a href="/products/trimmer-se" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/Bevel_Trimmer_SE_BoxFront_PlusProduct.png?v=1762480981&amp;width=1080" alt="Bevel Trimmer SE in black color, shown from the front with a visible charging indicator." srcset="//getbevel.com/cdn/shop/files/Bevel_Trimmer_SE_BoxFront_PlusProduct.png?v=1762480981&amp;width=315 315w, //getbevel.com/cdn/shop/files/Bevel_Trimmer_SE_BoxFront_PlusProduct.png?v=1762480981&amp;width=630 630w, //getbevel.com/cdn/shop/files/Bevel_Trimmer_SE_BoxFront_PlusProduct.png?v=1762480981&amp;width=945 945w" width="1080" height="1080" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:71.875% 70.508%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">The Bevel Trimmer SE</p><p class="smallcaps text-xs text-subdued">Constant Cordless Power</p></div></a><a href="/products/skin-essentials" class="v-stack justify-items-center gap-4 sm:gap-5 group"><div class="overflow-hidden"><img src="//getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=1772" alt="" srcset="//getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=315 315w, //getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=630 630w, //getbevel.com/cdn/shop/files/gallery_2_e07199b2-fdb6-4007-9a5d-ef43f30cefc6.webp?v=1762480937&amp;width=945 945w" width="1772" height="1772" loading="lazy" sizes="315px" class="zoom-image group-hover:zoom" style="object-position:48.0603% 52.5862%;"></div><div class="v-stack text-center gap-2.5"><p class="h6">Bevel Skin Essentials</p><p class="smallcaps text-xs text-subdued">Our Skincare Favorites</p></div></a></div></div></details></li>
+
+              <li class="header__primary-nav-item" data-title="Rewards"><a href="https://getbevel.com/pages/rewards" class="block h6">Rewards</a></li>
+
+              <li class="header__primary-nav-item" data-title="BEVEL CODE"><a href="/blogs/articles" class="block h6">BEVEL CODE</a></li></ul></nav><nav class="header__secondary-nav" aria-label="Secondary navigation"><a href="/account/login">
+          <span class="sr-only">Open account page</span><svg aria-hidden="true" fill="none" focusable="false" width="24" class="header__nav-icon icon icon-account" viewBox="0 0 24 24">
+      <path d="M16.125 8.75c-.184 2.478-2.063 4.5-4.125 4.5s-3.944-2.021-4.125-4.5c-.187-2.578 1.64-4.5 4.125-4.5 2.484 0 4.313 1.969 4.125 4.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M3.017 20.747C3.783 16.5 7.922 14.25 12 14.25s8.217 2.25 8.984 6.497" stroke="currentColor" stroke-width="1.6" stroke-miterlimit="10"></path>
+    </svg></a><a href="/search" aria-controls="header-search-sections--25364809613617__header">
+          <span class="sr-only">Open search</span><svg aria-hidden="true" fill="none" focusable="false" width="24" class="header__nav-icon icon icon-search" viewBox="0 0 24 24">
+      <path d="M10.364 3a7.364 7.364 0 1 0 0 14.727 7.364 7.364 0 0 0 0-14.727Z" stroke="currentColor" stroke-width="1.6" stroke-miterlimit="10"></path>
+      <path d="M15.857 15.858 21 21.001" stroke="currentColor" stroke-width="1.6" stroke-miterlimit="10" stroke-linecap="round"></path>
+    </svg></a><a href="/cart" class="relative standard-event" data-event-category="event_bin_action" data-event-action="event_view_cart" data-event-label="View Cart" aria-controls="cart-drawer">
+        <span class="sr-only">Open cart</span><svg aria-hidden="true" fill="none" focusable="false" width="24" class="header__nav-icon icon icon-cart" viewBox="0 0 24 24"><path d="M10 7h13l-4 9H7.5L5 3H1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="9" cy="20" r="1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></circle>
+          <circle cx="17" cy="20" r="1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></circle></svg><cart-dot class="header__cart-dot  "></cart-dot>
+      </a>
+    </nav><header-search id="header-search-sections--25364809613617__header" class="header-search" role="dialog"><template shadowrootmode="open">
+  <div part="base">
+    <div part="overlay"></div>
+
+    <div part="content">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+  <div class="container">
+    <form id="predictive-search-form" action="/search" method="GET" aria-owns="header-predictive-search" class="header-search__form" role="search">
+      <div class="header-search__form-control"><svg aria-hidden="true" fill="none" focusable="false" width="20" class="icon icon-search" viewBox="0 0 24 24">
+      <path d="M10.364 3a7.364 7.364 0 1 0 0 14.727 7.364 7.364 0 0 0 0-14.727Z" stroke="currentColor" stroke-width="1.6" stroke-miterlimit="10"></path>
+      <path d="M15.857 15.858 21 21.001" stroke="currentColor" stroke-width="1.6" stroke-miterlimit="10" stroke-linecap="round"></path>
+    </svg><input type="search" name="q" spellcheck="false" class="header-search__input h5 sm:h4" aria-label="Search" placeholder="Search for...">
+        <button type="button" is="dialog-close-button">
+          <span class="sr-only">Close</span><svg aria-hidden="true" focusable="false" fill="none" width="16" class="icon icon-close" viewBox="0 0 16 16">
+      <path d="m1 1 14 14M1 15 15 1" stroke="currentColor" stroke-width="1.6"></path>
+    </svg>
+
+  </button>
+      </div>
+    </form>
+
+    <predictive-search id="header-predictive-search" class="predictive-search"><template shadowrootmode="open"><slot name="results"></slot></template>
+      <div class="predictive-search__content" slot="results"></div>
+    </predictive-search>
+  </div>
+</header-search><template id="header-sidebar-template">
+  <div part="base">
+    <div part="overlay"></div>
+
+    <div part="content">
+      <header part="header">
+        <button type="button" is="dialog-close-button" part="close-button tap-area" aria-label="Close"><svg aria-hidden="true" focusable="false" fill="none" width="16" class="icon icon-close" viewBox="0 0 16 16">
+      <path d="m1 1 14 14M1 15 15 1" stroke="currentColor" stroke-width="1.6"></path>
+    </svg>
+
+  </button>
+      </header>
+
+      <div part="panel-list">
+        <slot name="main-panel"></slot><slot name="collapsible-panel"></slot></div>
+    </div>
+  </div>
+</template>
+
+<header-sidebar id="sidebar-menu" class="header-sidebar drawer drawer--sm color-scheme color-scheme--scheme-3" template="header-sidebar-template" open-from="left" role="dialog" aria-modal="true"><template shadowrootmode="open">
+  <div part="base">
+    <div part="overlay"></div>
+
+    <div part="content">
+      <header part="header">
+        <button type="button" is="dialog-close-button" part="close-button tap-area" aria-label="Close"><svg aria-hidden="true" focusable="false" fill="none" width="16" class="icon icon-close" viewBox="0 0 16 16">
+      <path d="m1 1 14 14M1 15 15 1" stroke="currentColor" stroke-width="1.6"></path>
+    </svg>
+
+  </button>
+      </header>
+
+      <div part="panel-list">
+        <slot name="main-panel"></slot><slot name="collapsible-panel"></slot></div>
+    </div>
+  </div>
+</template><div class="header-sidebar__main-panel" slot="main-panel">
+    <div class="header-sidebar__scroller">
+      <ul class="header-sidebar__linklist divide-y unstyled-list" role="list"><li><a href="/collections/devices" class="header-sidebar__linklist-button h6">Devices</a></li><li><a href="/collections/shave" class="header-sidebar__linklist-button h6">Shave</a></li><li><a href="/collections/hair" class="header-sidebar__linklist-button h6">Hair</a></li><li><a href="/collections/body" class="header-sidebar__linklist-button h6">Body</a></li><li><a href="/collections/skin" class="header-sidebar__linklist-button h6">Skin</a></li><li><a href="/collections/beard" class="header-sidebar__linklist-button h6">Beard</a></li><li><a href="/collections/bundles" class="header-sidebar__linklist-button h6">Bundles</a></li><li><a href="/collections/gift" class="header-sidebar__linklist-button h6">Gifts</a></li><li><a href="https://getbevel.com/pages/rewards" class="header-sidebar__linklist-button h6">Rewards</a></li><li><a href="/blogs/articles" class="header-sidebar__linklist-button h6">BEVEL CODE</a></li></ul>
+    </div><div class="header-sidebar__footer"></div></div><header-sidebar-collapsible-panel class="header-sidebar__collapsible-panel" slot="collapsible-panel" role="dialog">
+      <div class="header-sidebar__scroller"></div>
+    </header-sidebar-collapsible-panel></header-sidebar></x-header>
+</height-observer>
+
+<script>
+  document.documentElement.style.setProperty('--header-height', `${document.getElementById('shopify-section-sections--25364809613617__header').clientHeight.toFixed(2)}px`);
+</script>
+
+
+</header>
+       
+        
+<!--        <div class="lumina-frame">   -->
+        <!-- Slot: hero, Component: Hero, Variant: hero_clinical_blue -->
+        <section id="shopify-section-template--25364813709617__slideshow" class="shopify-section shopify-section--slideshow"><slideshow-carousel id="carousel-template--25364813709617__slideshow" class="slideshow" allow-swipe="" cell-selector=".slideshow__slide" autoplay="9" autoplay-pause-on-video="" role="region" style="--background: 0 0 0 ; background-color: rgb(var(--background));--border-color: var(--text-color) / 0.15;"><a href="/collections/gift" class="slideshow__slide standard-event is-selected" data-event-category="event_informational_action" data-event-action="event_banner_click" data-event-label="Slideshow Banner Click: No Text Input" media-type="image" role="group"><div class="content-over-media content-over-media--auto" style="--content-over-media-content-max-width: 780px; --content-over-media-gradient-overlay: "><picture><source media="(max-width: 699px)" srcset="//getbevel.com/cdn/shop/files/Homepage_Hero_MOBILE.png?v=1761938270&amp;width=400 400w, //getbevel.com/cdn/shop/files/Homepage_Hero_MOBILE.png?v=1761938270&amp;width=600 600w, //getbevel.com/cdn/shop/files/Homepage_Hero_MOBILE.png?v=1761938270&amp;width=800 800w, //getbevel.com/cdn/shop/files/Homepage_Hero_MOBILE.png?v=1761938270&amp;width=1000 1000w" width="1200" height="1600"><img src="../public/assets/bevelskincarehero.webp" alt="" width="3200" height="1200" fetchpriority="high" sizes="100vw" style="object-position:97.559% 92.09%;"></picture>
+
+    <div class="slideshow__slide-content    place-self-center text-center sm:place-self-center sm:text-center" style="--text-color: 255 255 255; color: rgb(var(--text-color));--border-color: var(--text-color) / 0.15;">
+        <div class="prose"></div>
+    </div>
+</div></a><button data-action="navigate-next" class="slideshow__next-section-button circle-button circle-button--lg hover:animate-icon-block">
+    <span class="sr-only">Navigate to next section</span><svg aria-hidden="true" focusable="false" fill="none" width="18" class="icon icon-arrow-down" viewBox="0 0 18 16">
+    <path d="m1 4 8 8 8-8" stroke="currentColor" stroke-linecap="square"></path>
+</svg></button></slideshow-carousel>
+</section>
+<!--        </div>-->
+      
+
+<!--        <div class="lumina-frame">   -->
+        <!-- Slot: slot_1, Component: SpecsStrip, Variant: specs_strip_hydra_men -->
+        
+    <section class="section generic">
+      <h2>Clinical Specs at a Glance</h2>
+      <p>Hydra Men: pH 5.5, 5% Niacinamide, non-comedogenic, fragrance-free.</p>
+      <div class="generic-image">[specs_strip_hydra_men.png]</div>
+    </section>
+  
+<!--        </div>-->
+      
+
+<!--        <div class="lumina-frame">   -->
+        <!-- Slot: slot_2, Component: ProductGrid, Variant: product_grid_hydra_men_line -->
+        
+    <section class="section generic">
+      <h2>Hydra Men Lineup</h2>
+      <p>Facial cream, cleanser, and exfoliating pads designed for sensitive and congested skin.</p>
+      <div class="generic-image">[product_grid_hydra_men_line.png]</div>
+    </section>
+  
+<!--        </div>-->
+      
+
+<!--        <div class="lumina-frame">   -->
+        <!-- Slot: slot_3, Component: IngredientPanel, Variant: ingredient_panel_hydra_men -->
+        
+    <section class="section generic">
+      <h2>Ingredient Transparency</h2>
+      <p>Niacinamide (5%), beta-glucan, and glycerin work together to calm and hydrate sensitive skin.</p>
+      <div class="generic-image">[ingredient_panel_hydra_men.png]</div>
+    </section>
+  
+<!--        </div>-->
+      
+
+<!--        <div class="lumina-frame">   -->
+        <!-- Slot: slot_4, Component: Graph, Variant: graph_ph_profile -->
+        
+    <section class="section graph">
+      <h2>pH Profile vs Skin Barrier Range</h2>
+      <p>Hydra Men formulas sit in the optimal 4.7–5.8 range for barrier recovery.</p>
+      <pre class="graph-placeholder">[graph_ph_profile.png]</pre>
+    </section>
+  
+<!--        </div>-->
+      
+
+<!--        <div class="lumina-frame">   -->
+        <!-- Slot: slot_5, Component: Testimonials, Variant: testimonials_skin_pros -->
+        
+    <section class="section generic">
+      <h2>What Skincare Experts Say</h2>
+      <p>“Hydra Men has become a staple recommendation for sensitive-skin clients.”</p>
+      <div class="generic-image">[testimonials_skin_pros.png]</div>
+    </section>
+  
+<!--        </div>-->
+      
+        
+        
+        <div class="debug">
+          Layout: <strong>layout_specs_first</strong> (Specs-first skincare layout) –
+          Audience: <strong>skincare_expert</strong>
+        </div>
+       
+      </body>
+      
+    </html>
+  

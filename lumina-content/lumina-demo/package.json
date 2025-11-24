@@ -1,0 +1,23 @@
+{
+  "name": "lumina-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build:skin": "node main.js skincare_expert",
+    "build:promo": "node main.js promo_shopper",
+    "start": "node server.js",
+    "dev:server": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "puppeteer": "^24.31.0"
+  }
+}

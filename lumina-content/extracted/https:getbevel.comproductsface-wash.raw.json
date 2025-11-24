@@ -1,0 +1,43 @@
+{
+  "source": {
+    "url": "https:getbevel.com/productsface-wash",
+    "fetched_at": "2025-11-12T21:39:08.634Z"
+  },
+  "product": {
+    "name": "Bevel 2-in-1 Face & Beard Wash",
+    "price": 11.95,
+    "currency": "USD",
+    "images": [
+      {
+        "url": {
+          "@type": "ImageObject",
+          "url": "https://getbevel.com/cdn/shop/files/gallery_2_ca40526b-7347-48c8-adb7-ccd74dad8274.webp?v=1762480928&width=1024",
+          "image": "https://getbevel.com/cdn/shop/files/gallery_2_ca40526b-7347-48c8-adb7-ccd74dad8274.webp?v=1762480928&width=1024",
+          "name": "",
+          "width": "1024",
+          "height": "1024"
+        },
+        "alt": "Bevel 2-in-1 Face & Beard Wash"
+      }
+    ],
+    "specs": [],
+    "highlights": [
+      "ELECTRIC SHAVER",
+      "TRIMMER",
+      "TRIMMER + T-BLADE",
+      "ALL-IN-ONE PRO CLIPPER",
+      "PRO + PRO T-BLADE",
+      "VIEW ALL"
+    ],
+    "description_html": "<p>Fresh Skin. Fresh beard. The Bevel Face &amp; Beard Wash is a 2-in-1 formula that cleanses, hydrates, and brightens—keeping skin and facial hair looking their best.\nWhy You’ll Love It:\n\n\nDeep Cleanse + Hydration: Tea tree oil, witch hazel, and aloe vera refresh skin without stripping moisture.\n\n\nBrightens + Evens Tone: Vitamin B3 helps fade dark spots for a smoother, more radiant look.\n\n\nFights Breakouts: Tea tree oil and witch hazel combat acne and help prevent future blemishes.\n\n\nGentle Formula: Removes dirt, oil, and impurities without irritation.\n\n\nAll-Skin Friendly: Effective for dry, oily, and sensitive skin types.\n\n</p>"
+  },
+  "social_proof": {
+    "rating": 4.9,
+    "review_count": 465,
+    "reviews": []
+  },
+  "page": {
+    "title": "Bevel 2-in-1 Face & Beard Wash",
+    "breadcrumbs": []
+  }
+}

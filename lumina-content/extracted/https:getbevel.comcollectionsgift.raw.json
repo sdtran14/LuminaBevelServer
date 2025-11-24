@@ -1,0 +1,56 @@
+{
+  "source": {
+    "url": "https:getbevel.com/collectionsgift",
+    "fetched_at": "2025-11-12T21:39:08.584Z"
+  },
+  "product": {
+    "name": "Gifts",
+    "price": "",
+    "currency": "",
+    "images": [
+      {
+        "url": "https://getbevel.com/cdn/shop/files/Bevel_Logo_WHT.svg?v=1727985371&width=80",
+        "alt": "Bevel"
+      },
+      {
+        "url": "https://getbevel.com/cdn/shop/files/Bevel_Pro_GuardsFalling_White_V2.png?v=1762480963&width=4800",
+        "alt": "Gifts"
+      },
+      {
+        "url": "https://getbevel.com/cdn/shop/files/1_e11bab4c-3f43-4b5d-af8b-94ab14af76a9.png?v=1762484989&width=1080",
+        "alt": "A set of grooming products including a black Bevel electric shaver, a bottle of Bevel Clear Shave Gel, and a tube of Bevel Post Shave Bump Control."
+      },
+      {
+        "url": "https://getbevel.com/cdn/shop/files/New_shaveKit_FOP-shadow.png?v=1757536786&width=1080",
+        "alt": "Gifts"
+      },
+      {
+        "url": "https://getbevel.com/cdn/shop/files/800439_1.webp?v=1736531182&width=996",
+        "alt": "Gifts"
+      },
+      {
+        "url": "https://getbevel.com/cdn/shop/files/gallery_2_9dc7bc5f-b565-4b1d-8077-c6d2f0998bad.webp?v=1728417776&width=3000",
+        "alt": "3 in 1 hair oil"
+      }
+    ],
+    "specs": [],
+    "highlights": [
+      "ELECTRIC SHAVER",
+      "TRIMMER",
+      "TRIMMER + T-BLADE",
+      "ALL-IN-ONE PRO CLIPPER",
+      "PRO + PRO T-BLADE",
+      "VIEW ALL"
+    ],
+    "description_html": ""
+  },
+  "social_proof": {
+    "rating": 0,
+    "review_count": 0,
+    "reviews": []
+  },
+  "page": {
+    "title": "Gifts",
+    "breadcrumbs": []
+  }
+}
