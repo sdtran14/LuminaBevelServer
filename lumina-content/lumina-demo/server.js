@@ -7,6 +7,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import {bumpPromoWeightsForUser, getUserWeightsFromCookies, setUserWeightsCookie} from './src/prefs/cookies.js';
 import {adjustTagWeight, DEFAULT_WEIGHTS} from "./src/prefs/weights.js";
+import {renderPageHtml} from "./scoring.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -90,6 +91,25 @@ app.get('/products/:handle', (req, res) => {
         res.status(500).send(`Error rendering product: ${handle}`);
     }
 });
+
+// app.use(async (req, res, next) => {
+//     console.log("HERE")
+//     // Let non-GET requests (POST/PUT/etc) fall through to 404 or other handlers
+//     if (req.method !== 'GET') return next();
+//
+//     try {
+//         const { pagePlan, layout, audience, context } = buildPage({
+//             pageType: 'landing',
+//             req,
+//         });
+//
+//         const html = renderPageHtml(pagePlan, layout, audience, context);
+//         res.send(html);
+//     } catch (err) {
+//         console.error('Error in fallback handler:', err);
+//         res.status(500).send('Something went wrong');
+//     }
+// });
 
 app.listen(PORT, () => {
     console.log(`Lumina demo server listening on http://localhost:${PORT}`);
