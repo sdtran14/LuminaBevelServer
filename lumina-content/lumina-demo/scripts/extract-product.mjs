@@ -40,17 +40,62 @@ async function fetchHtmlWithPuppeteer(url) {
             });
         });
 
-        // Make hidden tab content (e.g., Ingredients) visible for capture and flatten custom tabs
+        // Convert custom tabs/accordion to native <details>/<summary> so content is present but still toggleable
         await page.evaluate(() => {
-            document.querySelectorAll('[slot="content"]').forEach(el => {
-                el.removeAttribute('hidden');
-                el.style.display = 'block';
-                el.style.visibility = 'visible';
-            });
             document.querySelectorAll('x-tabs, x-accordion').forEach(host => {
+                const titles = host.querySelectorAll('[slot="title"]');
+                const contents = host.querySelectorAll('[slot="content"]');
+                const detailsList = [];
+
+                titles.forEach((titleEl, i) => {
+                    const contentEl = contents[i];
+                    const details = document.createElement('details');
+                    if (i === 0) details.open = true; // open first by default
+
+                    const summary = document.createElement('summary');
+                    const caret = document.createElement('span');
+                    caret.textContent = '›';
+                    caret.className = 'lumina-caret';
+                    caret.style.display = 'inline-block';
+                    caret.style.transition = 'transform 0.2s ease';
+                    summary.appendChild(caret);
+                    summary.appendChild(document.createTextNode(' ' + ((titleEl.textContent || '').trim() || 'Details')));
+
+                    const contentWrapper = document.createElement('div');
+                    contentWrapper.innerHTML = contentEl ? contentEl.innerHTML : '';
+
+                    details.appendChild(summary);
+                    details.appendChild(contentWrapper);
+                    detailsList.push(details);
+                });
+
                 const wrapper = document.createElement('div');
-                wrapper.innerHTML = host.innerHTML;
-                wrapper.querySelectorAll('[slot]').forEach(n => n.removeAttribute('slot'));
+                wrapper.setAttribute('data-lumina-tabs-converted', 'true');
+                const style = document.createElement('style');
+                style.textContent = `
+                [data-lumina-tabs-converted] summary {
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-weight: 600;
+                }
+                [data-lumina-tabs-converted] details {
+                  border: 1px solid #e5e7eb;
+                  padding: 10px 12px;
+                  border-radius: 6px;
+                  margin-bottom: 8px;
+                  background: #fff;
+                }
+                [data-lumina-tabs-converted] .lumina-caret {
+                  transform: rotate(0deg);
+                }
+                [data-lumina-tabs-converted] details[open] .lumina-caret {
+                  transform: rotate(90deg);
+                }
+                `;
+                wrapper.appendChild(style);
+                detailsList.forEach(d => wrapper.appendChild(d));
                 host.replaceWith(wrapper);
             });
         });
