@@ -22,6 +22,16 @@ function annotateProductHtml(html) {
         $(el).attr('data-lumina-goal', 'promo');
     });
 
+    // Teaser/promo pointers (multiple variants + data-testid)
+    $([
+        '.needsclick.Teaser-pointer-Hn1zd.kl-private-reset-css-Xuajs1',
+        '.needsclick.kl-teaser-QSGcAn.kl-private-reset-css-Xuajs1',
+        '[data-testid="animated-teaser"]'
+    ].join(',')).each((_, el) => {
+        $(el).attr('data-lumina-tag', 'promo,sale');
+        $(el).attr('data-lumina-goal', 'promo');
+    });
+
     return $.root().html();
 }
 

@@ -48,6 +48,42 @@
     sendDelta(target || el, 0.3, tagsOverride, goalsOverride);
   });
 
+  // Dynamic tagging for late-loaded promo/teaser elements (e.g., Klaviyo popup)
+  const dynamicSelectors = [
+    '.klaviyo-form',
+    '[data-testid="klaviyo-form-Rvcmpc"]',
+    '.needsclick.Teaser-pointer-Hn1zd.kl-private-reset-css-Xuajs1',
+    '.needsclick.kl-teaser-QSGcAn.kl-private-reset-css-Xuajs1',
+    '.needsclick.go300628013',
+    '[data-testid="animated-teaser"]',
+    '.kl-teaser-QSGcAn'
+  ];
+
+  const tagDynamic = (root) => {
+    const doc = typeof document !== 'undefined' ? document : null;
+    const base = root || doc;
+    if (!base) return [];
+    const nodes = root.querySelectorAll(dynamicSelectors.join(','));
+    if (nodes.length) console.log('[Lumina][tagDynamic] tagged nodes:', nodes.length);
+    nodes.forEach(node => {
+      node.setAttribute('data-lumina-tag', 'promo,sale');
+      node.setAttribute('data-lumina-goal', 'promo');
+    });
+  };
+
+  if (typeof document !== 'undefined') {
+    tagDynamic(document);
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach(m => {
+        m.addedNodes.forEach(n => {
+          if (!(n instanceof HTMLElement)) return;
+          tagDynamic(n);
+        });
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+
   // Dwell tracking
   const dwellStart = new WeakMap();
   const observer = new IntersectionObserver((entries) => {
@@ -160,5 +196,22 @@
     if (!next) return;
     next.classList.add('lumina-slot-fade');
     container.replaceWith(next);
+    reexecuteScripts(next);
+  }
+
+  function reexecuteScripts(root) {
+    const scripts = root.querySelectorAll('script');
+    scripts.forEach((oldScript) => {
+      const newScript = document.createElement('script');
+      if (oldScript.src) {
+        newScript.src = oldScript.src;
+        newScript.async = oldScript.async;
+      } else {
+        newScript.textContent = oldScript.textContent;
+      }
+      if (oldScript.type) newScript.type = oldScript.type;
+      document.body.appendChild(newScript);
+      oldScript.remove();
+    });
   }
 })();
