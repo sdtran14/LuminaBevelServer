@@ -170,21 +170,53 @@ function renderComponent(componentType, variant) {
     if (!variant) {
         return `<!-- ${componentType}: no variant selected -->`;
     }
+
+    const tags = (variant.tags || []).join(',');
+    const goals = (variant.goals || []).join(',');
+
+    let innerHtml;
+
     if (variant.html) {
-        return variant.html;
+        innerHtml = variant.html;
+    } else {
+        switch (componentType) {
+            case 'Hero':
+                innerHtml = renderHero(variant);
+                break;
+            case 'Carousel':
+                innerHtml = renderCarousel(variant);
+                break;
+            case 'Graph':
+                innerHtml = renderGraph(variant);
+                break;
+            // You can add more: 'SpecsStrip', 'ProductGrid', etc.
+            default:
+                innerHtml = renderGenericSection(variant);
+                break;
+        }
     }
 
-    switch (componentType) {
-        case 'Hero':
-            return renderHero(variant);
-        case 'Carousel':
-            return renderCarousel(variant);
-        case 'Graph':
-            return renderGraph(variant);
-        // You can add more: 'SpecsStrip', 'ProductGrid', etc.
-        default:
-            return renderGenericSection(variant);
-    }
+    return `
+    <section
+      class="lumina-track"
+      data-lumina-id="${variant.id}"
+      data-component-type="${componentType}"
+      data-lumina-tags="${tags}"
+      data-lumina-goals="${goals}"
+    >
+      ${innerHtml}
+    </section>
+  `;
+}
+
+export function renderSlot(entry) {
+    const { slotId, componentType, variant } = entry;
+    return `
+<div class="lumina-slot" data-slot-id="${slotId}" data-variant-id="${variant?.id || ''}">
+  <!-- Slot: ${slotId}, Component: ${componentType}, Variant: ${variant?.id ?? 'none'} -->
+  ${renderComponent(componentType, variant)}
+</div>
+`;
 }
 
 // ---------- main renderPageHtml ----------
@@ -194,15 +226,7 @@ import {bevelFooterHtml} from "./global/head.js";
 
 export function renderPageHtml(pagePlan, layout, audience,context = {}) {
     const slotsHtml = pagePlan
-        .map(entry => {
-            const { slotId, componentType, variant } = entry;
-            return `
-<!--        <div class="lumina-frame">   -->
-        <!-- Slot: ${slotId}, Component: ${componentType}, Variant: ${variant?.id ?? 'none'} -->
-        ${renderComponent(componentType, variant)}
-<!--        </div>-->
-      `;
-        })
+        .map(entry => renderSlot(entry))
         .join('\n');
 
     // simple page shell + tiny debug block so you can see the decisions
@@ -216,136 +240,19 @@ export function renderPageHtml(pagePlan, layout, audience,context = {}) {
         ? `${context.productHandle} – ${audience.id}`
         : audience.id
     }</title>
-
+        <link rel="stylesheet" href="/lumina.css" />
       </head>
-      <style>
-      /* Card container (mb-10 p-6 bg-gray-50 border border-gray-100 rounded-sm) */
-.lumina-clinical-card {
-  margin-bottom: 40px;              /* mb-10 (2.5rem) */
-  padding: 24px;                    /* p-6 (1.5rem)   */
-  background-color: #f9fafb;        /* bg-gray-50     */
-  border: 1px solid #f3f4f6;        /* border-gray-100 */
-  border-radius: 2px;               /* rounded-sm     */
-}
-
-/* Title (text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4) */
-.lumina-clinical-title {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;            /* tracking-widest */
-  color: #9ca3af;                   /* text-gray-400 */
-  margin-bottom: 16px;              /* mb-4 (1rem) */
-}
-
-/* Stack of metrics (space-y-5) */
-.lumina-metrics > .lumina-metric + .lumina-metric {
-  margin-top: 20px;                 /* space-y-5 (~1.25rem) */
-}
-
-/* Metric header row (flex justify-between text-xs font-bold text-[#1c1c1c] mb-1) */
-.lumina-metric-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;                  /* text-xs ~ 0.75rem */
-  font-weight: 700;
-  color: #1c1c1c;
-  margin-bottom: 4px;               /* mb-1 (0.25rem) */
-}
-
-/* Progress bar track (h-1.5 w-full bg-gray-200 rounded-full overflow-hidden) */
-.lumina-progress-track {
-  height: 6px;                      /* h-1.5 (0.375rem) */
-  width: 100%;
-  background-color: #e5e7eb;        /* bg-gray-200 */
-  border-radius: 9999px;            /* rounded-full */
-  overflow: hidden;
-}
-
-/* Progress bar fill (h-full bg-[#1c1c1c]) */
-.lumina-progress-fill {
-  height: 100%;
-  background-color: #1c1c1c;        /* bg-[#1c1c1c] */
-}
-
-/* Footer (mt-4 pt-4 border-t border-gray-200 flex justify-between items-center text-[10px] text-gray-500 font-medium) */
-.lumina-clinical-footer {
-  margin-top: 16px;                 /* mt-4 */
-  padding-top: 16px;                /* pt-4 */
-  border-top: 1px solid #e5e7eb;    /* border-gray-200 */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 10px;
-  color: #6b7280;                   /* text-gray-500 */
-  font-weight: 500;                 /* font-medium */
-}
-/* Section wrapper (py-12 bg-neutral-50 border-y border-gray-200) */
-.lumina-badges-section {
-  padding-top: 48px;                /* py-12 (3rem) */
-  padding-bottom: 48px;
-  background-color: #fafafa;        /* bg-neutral-50 */
-  border-top: 1px solid #e5e7eb;    /* border-gray-200 */
-  border-bottom: 1px solid #e5e7eb;
-}
-
-/* Inner container (mx-auto max-w-6xl px-6 flex flex-wrap justify-center gap-8 md:gap-16 text-center) */
-.lumina-badges-row {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 72rem;                 /* max-w-6xl */
-  padding-left: 24px;               /* px-6 (1.5rem) */
-  padding-right: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;                        /* gap-8 */
-  text-align: center;
-}
-
-/* Larger gap on medium+ screens (md:gap-16) */
-@media (min-width: 768px) {
-  .lumina-badges-row {
-    gap: 64px;                      /* gap-16 */
-  }
-}
-
-/* Individual badge wrapper */
-.lumina-badge {
-  /* no extra styles required, but here if you want future tweaks */
-}
-
-/* Icon circle (w-12 h-12 mx-auto mb-3 rounded-full border border-gray-300 flex items-center justify-center text-xl) */
-.lumina-badge-icon {
-  width: 48px;                      /* w-12 (3rem) */
-  height: 48px;                     /* h-12 */
-  margin-left: auto;                /* mx-auto */
-  margin-right: auto;
-  margin-bottom: 12px;              /* mb-3 (0.75rem) */
-  border-radius: 9999px;            /* rounded-full */
-  border: 1px solid #d1d5db;        /* border-gray-300 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;                  /* text-xl-ish */
-}
-
-/* Label (text-[10px] font-bold uppercase tracking-widest text-gray-500) */
-.lumina-badge-label {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;            /* tracking-widest */
-  color: #6b7280;                   /* text-gray-500 */
-}
-
-</style>
   
-      <body class="kaxsdc features--button-transition features--zoom-image color-scheme color-scheme--scheme-3"  >
+      <body class="kaxsdc features--button-transition features--zoom-image color-scheme color-scheme--scheme-3"
+            data-page-type="${context.pageType}"
+            data-product-handle="${context.productHandle || ''}"
+      >
         ${navbarHTML}
        
         ${slotsHtml}
         
+        <script src="/lumina-tracking.js"></script>
+
         
         <div class="debug">
           Layout: <strong>${layout.id}</strong> (${layout.label ?? ''}) –

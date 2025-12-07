@@ -4,6 +4,27 @@ import path from 'path';
 import {fileURLToPath} from "url";
 import * as cheerio from 'cheerio';
 
+// Annotate product HTML so pricing/offer blocks and feature badges emit intent signals
+function annotateProductHtml(html) {
+    if (!html) return html;
+
+    const $ = cheerio.load(html);
+
+    // Tag price/offer elements as promo-oriented (comma-separated to avoid parsing quirks)
+    $('.product-info__block-item[data-block-type="price"]').each((_, el) => {
+        $(el).attr('data-lumina-tag', 'promo,sale');
+        $(el).attr('data-lumina-goal', 'promo');
+    });
+
+    // Tag feature badges as product/evidence-oriented
+    $('.product-info__block-group[data-group-type="feature-badge-list"]').each((_, el) => {
+        $(el).attr('data-lumina-tag', 'promo,sale');
+        $(el).attr('data-lumina-goal', 'promo');
+    });
+
+    return $.root().html();
+}
+
 
 /**
  * Given a single product page JSON object (handle + components with html),
@@ -30,6 +51,8 @@ export function buildProductVariantsFromPageJson(pageJson) {
 
         const componentType = comp.componentType || slotKey;
 
+        const annotatedHtml = annotateProductHtml(comp.html);
+
         variants.push({
             // e.g. "face-wash-MainProduct"
             id: `${handle}-${slotKey}`,
@@ -47,13 +70,15 @@ export function buildProductVariantsFromPageJson(pageJson) {
             goals: ['explain_product', 'promo'],
 
             // the real Shopify markup from the JSON
-            html: comp.html,
+            html: annotatedHtml,
 
             baseScore: 0.9
         });
         // --- 2) If this is MainProduct, add an alternate variant by modifying the HTML ---
         if (componentType === 'MainProduct') {
             const modifiedHtml = buildAlternateMainProductHtml(comp.html, handle, slotKey);
+
+            const annotatedAltHtml = annotateProductHtml(modifiedHtml);
 
             variants.push({
                 id: `${handle}-${slotKey}-alt`,  // e.g. "face-wash-MainProduct-alt"
@@ -64,7 +89,7 @@ export function buildProductVariantsFromPageJson(pageJson) {
                 body: comp.body || `${componentType} alt content for ${handle}`,
                 tags: ['product', handle, componentType, 'skin'],
                 goals: ['explain_product'], // maybe more promo-oriented
-                html: modifiedHtml,
+                html: annotatedAltHtml,
                 baseScore: 0.85, // a bit lower/higher depending on how you want it to compete
             });
         }
@@ -118,8 +143,9 @@ export function buildAlternateMainProductHtml(originalHtml, handle, slotKey) {
     //$('.rc-purchase-option rc-purchase-option__subscription .rc-purchase-option__sub-container').remove();
     $('.product-info__block-item[data-block-type="payment-terms"]').remove();
     $('.product-info__block-item[data-block-type="text"]').remove();
-    $('.product-info__block-item[data-block-type="@app"]').remove();
+    //$('.product-info__block-item[data-block-type="@app"]').remove();
 
+    $('recharge-subscription-widget').remove();
 
     const injectedHtml = `
     <div class="lumina-clinical-card">
