@@ -8,6 +8,7 @@
   const pageType = document.body.dataset.pageType || 'landing';
   const productHandle = document.body.dataset.productHandle || '';
   const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+  let hardReloadScheduled = false;
 
   const parseTokens = (str = '') => (str || '')
     .split(/[\s,]+/)
@@ -63,7 +64,7 @@
     const doc = typeof document !== 'undefined' ? document : null;
     const base = root || doc;
     if (!base) return [];
-    const nodes = root.querySelectorAll(dynamicSelectors.join(','));
+    const nodes = (root || doc).querySelectorAll(dynamicSelectors.join(','));
     if (nodes.length) console.log('[Lumina][tagDynamic] tagged nodes:', nodes.length);
     nodes.forEach(node => {
       node.setAttribute('data-lumina-tag', 'promo,sale');
@@ -73,11 +74,13 @@
 
   if (typeof document !== 'undefined') {
     tagDynamic(document);
+    activateSticky(document);
     const mo = new MutationObserver((mutations) => {
       mutations.forEach(m => {
         m.addedNodes.forEach(n => {
           if (!(n instanceof HTMLElement)) return;
           tagDynamic(n);
+          activateSticky(n);
         });
       });
     });
@@ -162,9 +165,13 @@
     }
     if (Date.now() - lastRefresh < REFRESH_COOLDOWN_MS) return;
     if (promoSignalCount >= REFRESH_THRESHOLD) {
-      softRefresh();
+      softRefresh().catch(() => {});
       promoSignalCount = 0;
       lastRefresh = Date.now();
+      if (!hardReloadScheduled) {
+        hardReloadScheduled = true;
+        showReloadOverlay(() => window.location.reload());
+      }
     }
   }
 
@@ -197,6 +204,21 @@
     next.classList.add('lumina-slot-fade');
     container.replaceWith(next);
     reexecuteScripts(next);
+    activateSticky(next);
+  }
+
+  function showReloadOverlay(cb) {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.inset = '0';
+    overlay.style.background = 'rgba(255,255,255,0.9)';
+    overlay.style.backdropFilter = 'blur(3px)';
+    overlay.style.transition = 'opacity 150ms ease';
+    overlay.style.opacity = '0';
+    overlay.style.zIndex = '9999';
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+    setTimeout(() => cb && cb(), 180);
   }
 
   function reexecuteScripts(root) {
@@ -212,6 +234,19 @@
       if (oldScript.type) newScript.type = oldScript.type;
       document.body.appendChild(newScript);
       oldScript.remove();
+    });
+  }
+
+  function activateSticky(root) {
+    const doc = typeof document !== 'undefined' ? document : null;
+    const base = root || doc;
+    if (!base) return;
+    const stickyNodes = base.querySelectorAll('safe-sticky, .product-info__stick-wrapper');
+    stickyNodes.forEach(node => {
+      const target = node.matches('.product-info__stick-wrapper') ? node : node.querySelector('.product-info');
+      if (!target) return;
+      if (!target.style.position) target.style.position = 'sticky';
+      if (!target.style.top) target.style.top = '80px';
     });
   }
 })();
